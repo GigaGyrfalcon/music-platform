@@ -1,0 +1,12 @@
+@import 'primeflex/primeflex.scss';
+
+.activate {
+  width: 560px;
+  @include styleclass('flex flex-column mx-5');
+  .p-inputtext, .p-password {
+    @include styleclass('w-full');
+  }
+  .buttons {
+    @include styleclass('w-full flex');
+  }
+}

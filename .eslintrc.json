@@ -22,8 +22,10 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier", "simple-import-sort"],
   "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true, "semi": false }],
+    "simple-import-sort/imports": ["error"],
     "react/react-in-jsx-scope": "off"
   },
   "settings": {

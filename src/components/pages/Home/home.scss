@@ -1,0 +1,5 @@
+@import 'primeflex/primeflex.scss';
+
+.home {
+  @include styleclass('flex gap-3');
+}

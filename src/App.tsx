@@ -1,31 +1,21 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.scss'
-import Activate from './components/pages/Activate'
-import Login from './components/pages/Login'
-import Register from './components/pages/Register'
+
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import Activate from './components/pages/Activate/Activate'
+import Home from './components/pages/Home/Home'
+import Login from './components/pages/Login/Login'
+import Register from './components/pages/Register/Register'
 
 function App() {
   return (
     <div className="App">
       <h1>Music Platform</h1>
       <BrowserRouter>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">About</Link>
-              </li>
-              <li>
-                <Link to="/register">Users</Link>
-              </li>
-            </ul>
-          </nav>
-
+        <div className="flex justify-content-center">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/activate" element={<Activate />} />
