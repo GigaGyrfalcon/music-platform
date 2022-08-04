@@ -12,7 +12,8 @@ i18next
     interpolation: {
       escapeValue: false,
     },
-    debug: process.env.NODE_ENV !== 'production',
+    // debug: process.env.NODE_ENV !== 'production',
+    debug: false,
   })
 
 export default i18next

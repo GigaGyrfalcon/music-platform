@@ -35,6 +35,7 @@
   "user_address": "მომხმარებლის მისამართი",
   "new_user": "ახალი იუზერი {{number}}",
   "messages": {
-    "required": "{{field}} სავალდებულოა"
+    "required": "{{field}} სავალდებულოა",
+    "successfully_registered": "თქვენ წარმატებით რეგისტრირდით"
   }
 }

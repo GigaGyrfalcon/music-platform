@@ -1,12 +1,13 @@
 import './register.scss'
 
+import axios from 'axios'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { InputText } from 'primereact/inputtext'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { SelectButton } from 'primereact/selectbutton'
 import { classNames } from 'primereact/utils'
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Controller,
   FieldValues,
@@ -30,6 +31,7 @@ export type RegisterInputs = {
 
 function Register() {
   const { t } = useTranslation()
+  const [successMessage, setSuccessMessage] = useState('')
 
   const defaultAddressValues = {
     address_line_1: '',
@@ -65,12 +67,27 @@ function Register() {
     control,
   })
 
-  const onSubmit: SubmitHandler<RegisterInputs> = (values: FieldValues) => {
-    console.log(values)
-    // TODO: send request to server
+  const onSubmit: SubmitHandler<RegisterInputs> = async (
+    values: FieldValues
+  ) => {
+    try {
+      const response = await axios.post(
+        'http://72.140.157.98:8000/api/v1/merchant',
+        values
+      )
+      if (response.status === 200) {
+        setSuccessMessage(t('messages.successfully_registered'))
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      console.log('finally')
+    }
   }
 
-  return (
+  return successMessage ? (
+    <p>{successMessage}</p>
+  ) : (
     <form className="register" onSubmit={handleSubmit(onSubmit)}>
       <h2 className="heading-2">{t('register')}</h2>
 
@@ -305,23 +322,14 @@ function Register() {
           <Controller
             name={`users.${i}.middle_name`}
             control={control}
-            rules={{
-              required: t('messages.required', { field: t('middle_name') }),
-            }}
             render={({ field, fieldState }) => (
               <>
                 <span className="p-float-label mt-4">
                   <InputText
                     id={`users.${i}.middle_name`}
                     placeholder={t('middle_name')}
-                    className={classNames({
-                      'p-invalid': fieldState.error,
-                    })}
                     {...field}
                   />
-                  <label htmlFor={`users.${i}.middle_name`}>
-                    {t('middle_name')}
-                  </label>
                 </span>
                 {fieldState.error && (
                   <small className="p-error mt-1">
@@ -664,18 +672,19 @@ function Register() {
       <div className="flex mt-4 gap-3">
         <Button
           type="button"
-          label={t('add_user')}
-          icon="pi pi-user-plus"
-          className="p-button-sm p-button-outlined p-button-secondary"
-          onClick={() => append({ ...defaultUserValues })}
+          label={t('remove_user')}
+          icon="pi pi-user-minus"
+          className="p-button-sm p-button-outlined p-button-danger"
+          disabled={fields.length === 1}
+          onClick={() => fields.length !== 1 && remove(fields.length - 1)}
         />
 
         <Button
           type="button"
-          label={t('remove_user')}
-          icon="pi pi-user-minus"
-          className="p-button-sm p-button-outlined p-button-danger"
-          onClick={() => remove(fields.length - 1)}
+          label={t('add_user')}
+          icon="pi pi-user-plus"
+          className="p-button-sm p-button-outlined p-button-secondary"
+          onClick={() => append({ ...defaultUserValues })}
         />
       </div>
 
