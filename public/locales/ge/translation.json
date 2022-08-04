@@ -1,0 +1,23 @@
+{
+  "app_name": "მუსიკალური პლათფორმა",
+  "home": "მთავარი",
+  "activate": "აქტივაცია",
+  "login": "შესვლა",
+  "register": "რეგისტრაცია",
+  "general_info": "Ზოგადი ინფორმაცია",
+  "legal_address": "იურიდიული მისამართი",
+  "username": "მომხმარებელი",
+  "password": "პაროლი",
+  "confirm_password": "დაადასტურეთ პაროლი",
+  "legal_name": "იურიდიული სახელი", 
+  "business_description": "Ბიზნესის აღწერა",
+  "address_line_1": "მისამართის ხაზი 1",
+  "address_line_2": "მისამართის ხაზი 2",
+  "city": "ქალაქი",
+  "state": "შტატი",
+  "postal_code": "საფოსტო კოდი",
+  "country": "ქვეყანა",
+  "messages": {
+    "required": "{{field}} სავალდებულოა"
+  }
+}

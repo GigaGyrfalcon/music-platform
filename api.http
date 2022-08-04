@@ -1,1 +1,47 @@
-POST http://72.140.157.98:8000/test/
+
+POST http://72.140.157.98:8000/api/v1/test/
+
+POST http://72.140.157.98:8000/api/v1/merchant HTTP/1.1
+content-type: application/json
+
+{
+  "legal_name": "Legal Name",
+  "description": "Description of merchant",
+  "address": {
+    "address_line_1": "123 Main St",
+    "address_line_2": "",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10001",
+    "country": "US"
+  },
+  "users": [
+    {
+        "first_name": "John",
+        "middle_name": "",
+        "last_name": "Doe",
+        "position": "Owner",
+        "email": "doe@john.com",
+        "phone": "123-456-7890",
+        "is_contact_person": true,
+        "address": {
+            "address_line_1": "123 Main St",
+            "address_line_2": "",
+            "city": "New York",
+            "state": "NY",
+            "postal_code": "10001",
+            "country": "US"
+        },
+        "role": "admin"
+    }
+  ]
+}
+
+GET http://72.140.157.98:8000/api/v1/merchant HTTP/1.1
+content-type: application/json
+
+{
+    "id": 21
+}
+
+GET http://72.140.157.98:8000/api/v1/merchant/21 HTTP/1.1

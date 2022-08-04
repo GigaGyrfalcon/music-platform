@@ -1,0 +1,23 @@
+{
+  "app_name": "Music Platform",
+  "home": "Home",
+  "activate": "Activate",
+  "login": "Sign In",
+  "register": "Sign Up",
+  "general_info": "General Info",
+  "legal_address": "Legal Address",
+  "username": "Username",
+  "password": "Password",
+  "confirm_password": "Confirm password",
+  "legal_name": "Legal name",
+  "business_description": "Business description",
+  "address_line_1": "Address line 1",
+  "address_line_2": "Address line 2",
+  "city": "City",
+  "state": "State/Province",
+  "postal_code": "Postal code",
+  "country": "Country",
+  "messages": {
+    "required": "{{field}} is required"
+  }
+}

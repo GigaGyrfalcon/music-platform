@@ -10,6 +10,7 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 type Inputs = {
@@ -18,6 +19,7 @@ type Inputs = {
 }
 
 function Activate() {
+  const { t } = useTranslation()
   // TODO: Verify activation token
   // a. If token is valid, show form to enter new password
   // b. If token is invalid, show error message
@@ -35,41 +37,59 @@ function Activate() {
 
   return (
     <form className="activate" onSubmit={handleSubmit(onSubmit)}>
-      <h1>Activate</h1>
+      <h2 className="heading-2">{t('activate')}</h2>
 
       <Controller
         name="password"
         control={control}
-        rules={{ required: 'Password is required.' }}
+        rules={{
+          required: t('messages.required', { field: t('password') }),
+        }}
         render={({ field, fieldState }) => (
-          <span className="p-float-label mt-4">
-            <Password
-              placeholder="Password"
-              id={field.name}
-              {...field}
-              toggleMask={true}
-              className={classNames({ 'p-invalid': fieldState.error })}
-            />
-            <label htmlFor={field.name}>Password</label>
-          </span>
+          <>
+            <span className="p-float-label mt-4">
+              <Password
+                placeholder={t('password')}
+                id={field.name}
+                {...field}
+                toggleMask={true}
+                className={classNames({ 'p-invalid': fieldState.error })}
+              />
+              <label htmlFor={field.name}>{t('password')}</label>
+            </span>
+            {fieldState.error && (
+              <small className="p-error mt-1">
+                {fieldState.error?.message}
+              </small>
+            )}
+          </>
         )}
       />
 
       <Controller
         name="confirmPassword"
         control={control}
-        rules={{ required: 'Confirm password is required.' }}
+        rules={{
+          required: t('messages.required', { field: t('confirm_password') }),
+        }}
         render={({ field, fieldState }) => (
-          <span className="p-float-label mt-4">
-            <Password
-              placeholder="Confirm password"
-              id={field.name}
-              {...field}
-              toggleMask={true}
-              className={classNames({ 'p-invalid': fieldState.error })}
-            />
-            <label htmlFor={field.name}>Confirm Password</label>
-          </span>
+          <>
+            <span className="p-float-label mt-4">
+              <Password
+                placeholder={t('confirm_password')}
+                id={field.name}
+                {...field}
+                toggleMask={true}
+                className={classNames({ 'p-invalid': fieldState.error })}
+              />
+              <label htmlFor={field.name}>{t('confirm_password')}</label>
+            </span>
+            {fieldState.error && (
+              <small className="p-error mt-1">
+                {fieldState.error?.message}
+              </small>
+            )}
+          </>
         )}
       />
       <div className="flex justify-content-center mt-4 gap-3">
@@ -77,11 +97,11 @@ function Activate() {
           <Button
             className="p-button-raised p-button-text"
             icon="pi pi-home"
-            label="Home"
+            label={t('home')}
           />
         </Link>
 
-        <Button label="Activate" icon="pi pi-check" type="submit" />
+        <Button label={t('activate')} icon="pi pi-check" type="submit" />
       </div>
     </form>
   )
