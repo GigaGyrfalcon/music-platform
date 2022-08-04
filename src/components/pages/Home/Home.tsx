@@ -20,7 +20,7 @@ function Home() {
       <Link className="no-underline" to="/register">
         <Button
           className="p-button-large"
-          icon="pi pi-user-plus"
+          icon="pi pi-plus"
           label={t('register')}
         />
       </Link>

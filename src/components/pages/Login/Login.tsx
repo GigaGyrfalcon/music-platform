@@ -94,7 +94,7 @@ function Login() {
         <Link className="no-underline" to="/register">
           <Button
             className="p-button-raised p-button-text"
-            icon="pi pi-user-plus"
+            icon="pi pi-plus"
             label={t('register')}
           />
         </Link>
