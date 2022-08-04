@@ -20,5 +20,9 @@ body {
 }
 
 .heading-3 {
-  @include styleclass('text-l text-600 mt-4 mb-0');
+  @include styleclass('text-2xl text-600 mt-4 mb-0');
+}
+
+.heading-4 {
+  @include styleclass('text-xl text-600 mt-4 mb-0');
 }

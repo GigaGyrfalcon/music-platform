@@ -1,0 +1,40 @@
+{
+  "data": {
+    "id": "21",
+    "legal_name": "Legal Name",
+    "description": "Description of merchant",
+    "is_active": false,
+    "address": {
+      "id": 31,
+      "address_line_1": "123 Main St",
+      "address_line_2": "",
+      "city": "New York",
+      "state": "NY",
+      "country": "US",
+      "postal_code": "10001"
+    },
+    "users": [
+      {
+        "role": 2,
+        "first_name": "John",
+        "last_name": "Doe",
+        "middle_name": "",
+        "position": "Owner",
+        "email": "doe@john.com",
+        "phone": "123-456-7890",
+        "is_contact_person": true,
+        "email_is_confirmed": false,
+        "is_deleted": false,
+        "address": {
+          "id": 32,
+          "address_line_1": "123 Main St",
+          "address_line_2": "",
+          "city": "New York",
+          "state": "NY",
+          "country": "US",
+          "postal_code": "10001"
+        }
+      }
+    ]
+  }
+}

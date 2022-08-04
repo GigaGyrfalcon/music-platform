@@ -17,6 +17,23 @@
   "state": "State/Province",
   "postal_code": "Postal code",
   "country": "Country",
+  "users": "Users",
+  "add_user": "Add user",
+  "remove_user": "Remove user",
+  "first_name": "First name",
+  "middle_name": "Middle name",
+  "last_name": "Last name",
+  "position": "Position",
+  "email": "Email",
+  "phone": "Phone",
+  "contact_person": "Contact person",
+  "role": "Role",
+  "yes": "Yes",
+  "no": "No",
+  "admin": "Admin",
+  "media": "Media",
+  "user_address": "User address",
+  "new_user": "New user {{number}}",
   "messages": {
     "required": "{{field}} is required"
   }

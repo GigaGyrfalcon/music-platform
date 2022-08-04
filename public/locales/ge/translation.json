@@ -17,6 +17,23 @@
   "state": "შტატი",
   "postal_code": "საფოსტო კოდი",
   "country": "ქვეყანა",
+  "users": "მომხმარებლები",
+  "add_user": "დამატება",
+  "remove_user": "წაშლა",
+  "first_name": "სახელი",
+  "middle_name": "მეორე სახელი",
+  "last_name": "გვარი",
+  "position": "პოზიცია",
+  "email": "ელ-ფოსტა",
+  "phone": "ტელეფონი",
+  "contact_person": "საკონტაქტო პირი",
+  "role": "როლი",
+  "yes": "დიახ",
+  "no": "არა",
+  "admin": "ადმინი",
+  "media": "მედია",
+  "user_address": "მომხმარებლის მისამართი",
+  "new_user": "ახალი იუზერი {{number}}",
   "messages": {
     "required": "{{field}} სავალდებულოა"
   }
