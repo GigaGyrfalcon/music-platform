@@ -28,7 +28,7 @@ function Activate() {
 
   const activate = useCallback(async () => {
     try {
-      const response = await axios.get(`${ApiUrl}activate/${token}`)
+      const response = await axios.get(`${ApiUrl}/activate/${token}`)
       setActivateRes(response)
     } catch (error) {
       console.log(error)
@@ -51,7 +51,7 @@ function Activate() {
 
   const onSubmit: SubmitHandler<Inputs> = async (values: FieldValues) => {
     try {
-      const response = await axios.post(`${ApiUrl}set_password`, {
+      const response = await axios.post(`${ApiUrl}/set_password`, {
         password: values.password,
         secret: token,
       })

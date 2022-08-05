@@ -72,7 +72,7 @@ function Register() {
     values: FieldValues
   ) => {
     try {
-      const response = await axios.post(`${ApiUrl}merchant`, values)
+      const response = await axios.post(`${ApiUrl}/merchant`, values)
       if (response.status === 200) {
         setSuccessMessage(t('messages.successfully_registered'))
       }
