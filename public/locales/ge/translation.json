@@ -36,6 +36,7 @@
   "new_user": "ახალი იუზერი {{number}}",
   "messages": {
     "required": "{{field}} სავალდებულოა",
-    "successfully_registered": "თქვენ წარმატებით რეგისტრირდით"
+    "successfully_registered": "თქვენ წარმატებით რეგისტრირდით",
+    "min_length": "{{field}} ველი უნდა შეიცავდეს მინიმუმ {{min_length}} სიმბოლოს"
   }
 }

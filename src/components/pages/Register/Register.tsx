@@ -18,6 +18,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
+import { ApiUrl } from '../../..'
 import { Address } from '../../../domain/address/Address'
 import { User } from '../../../domain/user/User'
 import { UserRoles } from '../../../domain/user/UserRole'
@@ -71,10 +72,7 @@ function Register() {
     values: FieldValues
   ) => {
     try {
-      const response = await axios.post(
-        'http://72.140.157.98:8000/api/v1/merchant',
-        values
-      )
+      const response = await axios.post(`${ApiUrl}merchant`, values)
       if (response.status === 200) {
         setSuccessMessage(t('messages.successfully_registered'))
       }

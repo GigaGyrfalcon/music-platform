@@ -36,6 +36,7 @@
   "new_user": "New user {{number}}",
   "messages": {
     "required": "{{field}} is required",
-    "successfully_registered": "Successfully registered"
+    "successfully_registered": "Successfully registered",
+    "min_length": "{{field}} must be at least {{min_length}} characters long"
   }
 }

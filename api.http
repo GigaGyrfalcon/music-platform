@@ -45,3 +45,15 @@ content-type: application/json
 }
 
 GET http://72.140.157.98:8000/api/v1/merchant/21 HTTP/1.1
+
+// Verify activation token
+GET http://72.140.157.98:8000/api/v1/activate/673aca25f509e090ffabc76055bdb5a3 HTTP/1.1
+
+// Set password
+post http://72.140.157.98:8000/api/v1/set_password http/1.1
+content-type: application/json
+
+{
+    "password": "gigabiga2022!~",
+    "secret":  "673aca25f509e090ffabc76055bdb5a3"
+}
