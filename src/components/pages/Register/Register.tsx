@@ -1,6 +1,5 @@
 import './register.scss'
 
-import axios from 'axios'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { InputText } from 'primereact/inputtext'
@@ -18,7 +17,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-import { ApiUrl } from '../../..'
+import axios from '../../../api'
 import { Address } from '../../../domain/address/Address'
 import { User } from '../../../domain/user/User'
 import { UserRoles } from '../../../domain/user/UserRole'
@@ -72,7 +71,7 @@ function Register() {
     values: FieldValues
   ) => {
     try {
-      const response = await axios.post(`${ApiUrl}/merchant`, values)
+      const response = await axios.post(`/merchant`, values)
       if (response.status === 200) {
         setSuccessMessage(t('messages.successfully_registered'))
       }

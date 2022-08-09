@@ -37,6 +37,7 @@
   "messages": {
     "required": "{{field}} სავალდებულოა",
     "successfully_registered": "თქვენ წარმატებით რეგისტრირდით",
-    "min_length": "{{field}} ველი უნდა შეიცავდეს მინიმუმ {{min_length}} სიმბოლოს"
+    "min_length": "{{field}} ველი უნდა შეიცავდეს მინიმუმ {{min_length}} სიმბოლოს",
+    "passwords_do_not_match": "პაროლები არ ემთხვევა"
   }
 }

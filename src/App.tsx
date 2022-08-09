@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Activate from './components/pages/Activate'
+import Dashboard from './components/pages/Dashboard'
 import Home from './components/pages/Home'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/activate/:token" element={<Activate />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </BrowserRouter>

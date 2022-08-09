@@ -1,6 +1,5 @@
 import './activate.scss'
 
-import axios from 'axios'
 import { Button } from 'primereact/button'
 import { Password } from 'primereact/password'
 import { classNames } from 'primereact/utils'
@@ -14,7 +13,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 
-import { ApiUrl } from '../../..'
+import axios from '../../../api'
 
 type Inputs = {
   password: string
@@ -24,34 +23,32 @@ type Inputs = {
 function Activate() {
   const { t } = useTranslation()
   const { token } = useParams()
-  const [activateRes, setActivateRes] = useState({})
+  const [activate, setActivate] = useState(false)
 
-  const activate = useCallback(async () => {
+  const send = useCallback(async () => {
     try {
-      const response = await axios.get(`${ApiUrl}/activate/${token}`)
-      setActivateRes(response)
+      const response = await axios.get(`/activate/${token}`)
+      setActivate(response.status === 200)
     } catch (error) {
       console.log(error)
     }
   }, [token])
 
   useEffect(() => {
-    activate()
+    send()
   }, [])
-
-  // TODO: Verify activation token
-  // a. If token is valid, show form to enter new password
-  // b. If token is invalid, show error message
 
   const defaultValues = {
     password: '',
     confirmPassword: '',
   }
-  const { handleSubmit, control } = useForm<Inputs>({ defaultValues })
+  const { handleSubmit, control, getValues } = useForm<Inputs>({
+    defaultValues,
+  })
 
   const onSubmit: SubmitHandler<Inputs> = async (values: FieldValues) => {
     try {
-      const response = await axios.post(`${ApiUrl}/set_password`, {
+      const response = await axios.post(`/set_password`, {
         password: values.password,
         secret: token,
       })
@@ -62,10 +59,9 @@ function Activate() {
       console.log(error)
     }
   }
-  return (
+  return activate ? (
     <form className="activate" onSubmit={handleSubmit(onSubmit)}>
       <h2 className="heading-2">{t('activate')}</h2>
-      {activateRes && <p>Activated</p>}
       <Controller
         name="password"
         control={control}
@@ -109,6 +105,12 @@ function Activate() {
               min_length: 8,
             }),
           },
+          validate: (value) => {
+            return (
+              value === getValues().password ||
+              t('messages.passwords_do_not_match')
+            )
+          },
         }}
         render={({ field, fieldState }) => (
           <>
@@ -142,6 +144,8 @@ function Activate() {
         <Button label={t('activate')} icon="pi pi-check" type="submit" />
       </div>
     </form>
+  ) : (
+    <p>Not activated</p>
   )
 }
 

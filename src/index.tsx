@@ -10,8 +10,6 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-export const ApiUrl = 'http://72.140.157.98:8000/api/v1'
-
 const root = createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>

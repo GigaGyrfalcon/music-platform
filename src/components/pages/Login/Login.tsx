@@ -12,26 +12,34 @@ import {
   useForm,
 } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+import axios from '../../../api'
 
 type Inputs = {
-  username: string
+  email: string
   password: string
 }
 
 function Login() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
-  const defaultValues = { username: '', password: '' }
+  const defaultValues = { email: '', password: '' }
   const { handleSubmit, control } = useForm<Inputs>({ defaultValues })
 
-  const onSubmit: SubmitHandler<Inputs> = (values: FieldValues) => {
-    console.log(values)
-    // TODO: send request to server
-    if (values.username === 'user' && values.password === '123456') {
-      alert('Sign in success')
-    } else {
-      alert('Invalid username or password')
+  const onSubmit: SubmitHandler<Inputs> = async (values: FieldValues) => {
+    try {
+      const response = await axios.post(`/sign_in`, {
+        email: values.email,
+        password: values.password,
+      })
+      if (response.status === 200) {
+        localStorage.setItem('token', response.data.auth_token)
+        navigate('/dashboard')
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -39,22 +47,22 @@ function Login() {
     <form className="login" onSubmit={handleSubmit(onSubmit)}>
       <h2 className="heading-2">{t('login')}</h2>
       <Controller
-        name="username"
+        name="email"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('username') }),
+          required: t('messages.required', { field: t('email') }),
         }}
         render={({ field, fieldState }) => (
           <>
             <span className="p-float-label">
               <InputText
-                placeholder={t('username')}
+                placeholder={t('email')}
                 id={field.name}
                 {...field}
                 autoFocus
                 className={classNames({ 'p-invalid': fieldState.error })}
               />
-              <label htmlFor={field.name}>{t('username')}</label>
+              <label htmlFor={field.name}>{t('email')}</label>
             </span>
             {fieldState.error && (
               <small className="p-error mt-1">

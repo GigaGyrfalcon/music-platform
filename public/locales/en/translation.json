@@ -37,6 +37,7 @@
   "messages": {
     "required": "{{field}} is required",
     "successfully_registered": "Successfully registered",
-    "min_length": "{{field}} must be at least {{min_length}} characters long"
+    "min_length": "{{field}} must be at least {{min_length}} characters long",
+    "passwords_do_not_match": "Passwords do not match"
   }
 }
