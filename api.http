@@ -58,7 +58,34 @@ content-type: application/json
     "password": "1234qwer"
 }
 
+// Sign out
+POST http://72.140.157.98:8000/api/v1/sign_out/ HTTP/1.1
+Authorization: Bearer  
+
 
 // Authorize merchant
 GET http://72.140.157.98:8000/api/v1/merchant HTTP/1.1
-Authorization: Bearer 22a6c713da65b687ac56c5a99320a51d 
+Authorization: Bearer e6283f01825bf7c09f050e9912898d7b 
+
+// Create breanch
+POST http://72.140.157.98:8000/api/v1/branch HTTP/1.1
+Authorization: Bearer e6283f01825bf7c09f050e9912898d7b
+content-type: application/json
+
+{
+  "branch_name": "My Branch Name",
+  "address": {
+		"address_line_1": "address_line_1",
+		"address_line_2": "address_line_2",
+		"city": "city",
+		"state": "state",
+		"postal_code": "postal_code",
+		"country": "country"
+	}
+}
+
+// Create breanch
+DELETE http://72.140.157.98:8000/api/v1/branch/9 HTTP/1.1
+Authorization: Bearer e6283f01825bf7c09f050e9912898d7b
+
+

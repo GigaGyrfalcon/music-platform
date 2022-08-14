@@ -12,18 +12,25 @@ import {
   useForm,
 } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import axios from '../../../api'
-
+import useAuth from '../../../hooks/useAuth'
 type Inputs = {
   email: string
   password: string
 }
 
+type LocationState = { from: { pathname: string } }
+
 function Login() {
+  const { setAuth } = useAuth()
+
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const location = useLocation()
+  const state = location.state as LocationState
+  const from = state?.from?.pathname || '/dashboard'
 
   const defaultValues = { email: '', password: '' }
   const { handleSubmit, control } = useForm<Inputs>({ defaultValues })
@@ -35,8 +42,8 @@ function Login() {
         password: values.password,
       })
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.auth_token)
-        navigate('/dashboard')
+        setAuth({ token: response.data.auth_token })
+        navigate(from, { replace: true })
       }
     } catch (error) {
       console.log(error)
@@ -60,6 +67,7 @@ function Login() {
                 id={field.name}
                 {...field}
                 autoFocus
+                autoComplete="off"
                 className={classNames({ 'p-invalid': fieldState.error })}
               />
               <label htmlFor={field.name}>{t('email')}</label>

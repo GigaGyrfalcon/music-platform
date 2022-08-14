@@ -6,15 +6,21 @@ import './services/i18n'
 
 import React, { Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
+import { AuthProvider } from './context/AuthProvider'
 import reportWebVitals from './reportWebVitals'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Suspense fallback="Loading...">
-      <App />
+      <BrowserRouter>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </BrowserRouter>
     </Suspense>
   </React.StrictMode>
 )

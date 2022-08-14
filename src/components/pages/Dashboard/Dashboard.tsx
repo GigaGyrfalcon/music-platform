@@ -3,7 +3,7 @@ import './dashboard.scss'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import axios from '../../../api'
+import { axiosPrivate } from '../../../api'
 
 function Dashboard() {
   const { t } = useTranslation()
@@ -14,7 +14,7 @@ function Dashboard() {
     const controller = new AbortController()
     const getMerchant = async () => {
       try {
-        const response = await axios.get(`/merchant`, {
+        const response = await axiosPrivate.get(`/merchant`, {
           signal: controller.signal,
         })
         isMounted && response.status === 200 && setMerchant(response.data)

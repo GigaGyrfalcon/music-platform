@@ -1,42 +1,36 @@
 import './App.scss'
 
-import { Button } from 'primereact/button'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
+import PublicLayout from './components/layouts/PublicLayout'
 import Activate from './components/pages/Activate'
+import Branch from './components/pages/Branch'
 import Dashboard from './components/pages/Dashboard'
 import Home from './components/pages/Home'
 import Login from './components/pages/Login'
+import PageNotFound from './components/pages/PageNotFound'
 import Register from './components/pages/Register'
+import RequiredAuth from './components/pages/RequireAuth'
 
 function App() {
-  const { t, i18n } = useTranslation()
-
   return (
-    <div className="App">
-      <h1>{t('app_name')}</h1>
-      <BrowserRouter>
-        <div className="flex justify-content-center">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/activate/:token" element={<Activate />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-      <Button
-        className="p-button-sm p-button-text mt-6 float-right"
-        label={i18n.language === 'en' ? 'ქართული' : 'English'}
-        icon="pi pi-book"
-        onClick={() =>
-          i18n.changeLanguage(i18n.language === 'en' ? 'ge' : 'en')
-        }
-      />
-    </div>
+    <Routes>
+      <Route path="/" element={<PublicLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/activate/:token" element={<Activate />} />
+        {/* Protected routes */}
+        <Route element={<RequiredAuth />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/branch" element={<Branch />} />
+        </Route>
+
+        {/* Catch all */}
+        <Route path="*" element={<PageNotFound />} />
+      </Route>
+    </Routes>
   )
 }
 

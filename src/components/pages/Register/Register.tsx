@@ -102,6 +102,7 @@ function Register() {
                 placeholder={t('legal_name')}
                 {...field}
                 autoFocus
+                autoComplete="off"
                 className={classNames({ 'p-invalid': fieldState.error })}
               />
               <label htmlFor={field.name}>{t('legal_name')}</label>
