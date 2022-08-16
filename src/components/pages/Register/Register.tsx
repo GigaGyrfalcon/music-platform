@@ -318,7 +318,7 @@ function Register() {
           <Controller
             name={`users.${i}.middle_name`}
             control={control}
-            render={({ field, fieldState }) => (
+            render={({ field }) => (
               <>
                 <span className="p-float-label mt-4">
                   <InputText
@@ -326,12 +326,10 @@ function Register() {
                     placeholder={t('middle_name')}
                     {...field}
                   />
+                  <label htmlFor={`users.${i}.last_name`}>
+                    {t('last_name')}
+                  </label>
                 </span>
-                {fieldState.error && (
-                  <small className="p-error mt-1">
-                    {fieldState.error?.message}
-                  </small>
-                )}
               </>
             )}
           />
