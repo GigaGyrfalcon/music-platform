@@ -692,6 +692,7 @@ function Register() {
             label={t('login')}
             icon="pi pi-sign-in"
             className="p-button-raised p-button-text"
+            type="button"
           />
         </Link>
 

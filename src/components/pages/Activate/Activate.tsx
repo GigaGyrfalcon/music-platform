@@ -138,6 +138,7 @@ function Activate() {
             className="p-button-raised p-button-text"
             icon="pi pi-home"
             label={t('home')}
+            type="button"
           />
         </Link>
 

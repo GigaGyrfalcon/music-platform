@@ -112,6 +112,7 @@ function Login() {
             className="p-button-raised p-button-text"
             icon="pi pi-plus"
             label={t('register')}
+            type="button"
           />
         </Link>
 
