@@ -1,4 +1,3 @@
-
 POST http://72.140.157.98:8000/api/v1/test/
 
 POST http://72.140.157.98:8000/api/v1/merchant HTTP/1.1
@@ -49,7 +48,7 @@ content-type: application/json
     "secret":  "673aca25f509e090ffabc76055bdb5a3"
 }
 
-
+// Sign in
 POST http://72.140.157.98:8000/api/v1/sign_in/ HTTP/1.1
 content-type: application/json
 
