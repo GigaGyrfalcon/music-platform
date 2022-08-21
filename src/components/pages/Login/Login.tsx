@@ -57,6 +57,10 @@ function Login() {
         name="email"
         control={control}
         rules={{
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: t('messages.invalid_email'),
+          },
           required: t('messages.required', { field: t('email') }),
         }}
         render={({ field, fieldState }) => (
