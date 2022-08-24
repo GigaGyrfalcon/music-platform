@@ -1,26 +1,27 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext } from 'react'
 
 interface AuthProviderProps {
   children?: React.ReactNode
 }
 
-type Auth = { token: string }
-
 export const AuthContext = createContext<{
-  auth: Auth
-  setAuth: (auth: Auth) => void
+  setToken: (token: string) => void
+  getToken: () => string
 }>({
-  auth: { token: '' },
-  setAuth: () => {
+  setToken: () => {
     return
+  },
+  getToken: () => {
+    return ''
   },
 })
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [auth, setAuth] = useState({ token: '' })
+  const setToken = (token: string) => localStorage.setItem('token', token)
+  const getToken = (): string => localStorage.getItem('token') || ''
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
+    <AuthContext.Provider value={{ setToken, getToken }}>
       {children}
     </AuthContext.Provider>
   )

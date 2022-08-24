@@ -26,7 +26,7 @@ type Inputs = {
 type LocationState = { from: { pathname: string } }
 
 function Login() {
-  const { setAuth } = useAuth()
+  const { setToken } = useAuth()
   const toast = useToast()
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -43,7 +43,7 @@ function Login() {
         password: values.password,
       })
       if (response.status === 200) {
-        setAuth({ token: response.data.auth_token })
+        setToken(response.data.auth_token)
         navigate(from, { replace: true })
       }
     } catch (error) {
