@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { axiosPrivate } from '../../../api'
+import useToast from '../../../hooks/useToast'
 
 function Dashboard() {
   const { t } = useTranslation()
+  const toast = useToast()
   const [merchant, setMerchant] = useState({})
 
   useEffect(() => {
@@ -19,7 +21,7 @@ function Dashboard() {
         })
         isMounted && response.status === 200 && setMerchant(response.data)
       } catch (error) {
-        console.log(error)
+        toast.setToast('error', 'Error', error.message)
       }
     }
     getMerchant()

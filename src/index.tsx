@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import { AuthProvider } from './context/AuthProvider'
+import { ToastProvider } from './context/ToastProvider'
 import reportWebVitals from './reportWebVitals'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
@@ -17,9 +18,11 @@ root.render(
   <React.StrictMode>
     <Suspense fallback="Loading...">
       <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <ToastProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </ToastProvider>
       </BrowserRouter>
     </Suspense>
   </React.StrictMode>

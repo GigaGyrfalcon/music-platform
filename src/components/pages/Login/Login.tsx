@@ -16,6 +16,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import axios from '../../../api'
 import useAuth from '../../../hooks/useAuth'
+import useToast from '../../../hooks/useToast'
+
 type Inputs = {
   email: string
   password: string
@@ -25,7 +27,7 @@ type LocationState = { from: { pathname: string } }
 
 function Login() {
   const { setAuth } = useAuth()
-
+  const toast = useToast()
   const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
@@ -34,10 +36,9 @@ function Login() {
 
   const defaultValues = { email: '', password: '' }
   const { handleSubmit, control } = useForm<Inputs>({ defaultValues })
-
   const onSubmit: SubmitHandler<Inputs> = async (values: FieldValues) => {
     try {
-      const response = await axios.post(`/sign_in`, {
+      const response = await axios.post('/sign_in', {
         email: values.email,
         password: values.password,
       })
@@ -46,7 +47,7 @@ function Login() {
         navigate(from, { replace: true })
       }
     } catch (error) {
-      console.log(error)
+      toast.setToast('error', 'Error', error.message)
     }
   }
 

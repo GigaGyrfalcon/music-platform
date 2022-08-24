@@ -21,6 +21,7 @@ import axios from '../../../api'
 import { Address } from '../../../domain/address/Address'
 import { User } from '../../../domain/user/User'
 import { UserRoles } from '../../../domain/user/UserRole'
+import useToast from '../../../hooks/useToast'
 
 export type RegisterInputs = {
   legal_name: string
@@ -31,6 +32,7 @@ export type RegisterInputs = {
 
 function Register() {
   const { t } = useTranslation()
+  const toast = useToast()
   const [successMessage, setSuccessMessage] = useState('')
 
   const defaultAddressValues = {
@@ -76,7 +78,7 @@ function Register() {
         setSuccessMessage(t('messages.successfully_registered'))
       }
     } catch (error) {
-      console.log(error)
+      toast.setToast('error', 'Error', error.message)
     }
   }
 

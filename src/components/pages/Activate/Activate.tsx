@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 
 import axios from '../../../api'
+import useToast from '../../../hooks/useToast'
 
 type Inputs = {
   password: string
@@ -22,6 +23,7 @@ type Inputs = {
 
 function Activate() {
   const { t } = useTranslation()
+  const toast = useToast()
   const { token } = useParams()
   const [activate, setActivate] = useState(false)
 
@@ -30,7 +32,7 @@ function Activate() {
       const response = await axios.get(`/activate/${token}`)
       setActivate(response.status === 200)
     } catch (error) {
-      console.log(error)
+      toast.setToast('error', 'Error', error.message)
     }
   }, [token])
 
@@ -53,10 +55,10 @@ function Activate() {
         secret: token,
       })
       if (response.status === 200) {
-        // setSuccessMessage(t('messages.successfully_registered'))
+        toast.setToast('success', 'Success', response.data.message)
       }
     } catch (error) {
-      console.log(error)
+      toast.setToast('error', 'Error', error.message)
     }
   }
   return activate ? (
