@@ -11,7 +11,7 @@ import {
   useForm,
 } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import axios from '../../../api'
 import useToast from '../../../hooks/useToast'
@@ -26,6 +26,7 @@ function Activate() {
   const toast = useToast()
   const { token } = useParams()
   const [activate, setActivate] = useState(false)
+  const navigate = useNavigate()
 
   const send = useCallback(async () => {
     try {
@@ -56,6 +57,7 @@ function Activate() {
       })
       if (response.status === 200) {
         toast.setToast('success', 'Success', response.data.message)
+        navigate('/login', { replace: true })
       }
     } catch (error) {
       toast.setToast('error', 'Error', error.message)
