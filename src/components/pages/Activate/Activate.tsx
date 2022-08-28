@@ -33,7 +33,7 @@ function Activate() {
       const response = await axios.get(`/activate/${token}`)
       setActivate(response.status === 200)
     } catch (error) {
-      toast.setToast('error', 'Error', error.message)
+      toast.setToast('error', 'Error', error.response.data.message)
     }
   }, [token])
 
@@ -60,7 +60,7 @@ function Activate() {
         navigate('/login', { replace: true })
       }
     } catch (error) {
-      toast.setToast('error', 'Error', error.message)
+      toast.setToast('error', 'Error', error.response.data.message)
     }
   }
   return activate ? (

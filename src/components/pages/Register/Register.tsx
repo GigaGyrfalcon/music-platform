@@ -78,7 +78,7 @@ function Register() {
         setSuccessMessage(t('messages.successfully_registered'))
       }
     } catch (error) {
-      toast.setToast('error', 'Error', error.message)
+      toast.setToast('error', 'Error', error.response.data.message)
     }
   }
 

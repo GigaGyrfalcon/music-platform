@@ -47,7 +47,7 @@ function Login() {
         navigate(from, { replace: true })
       }
     } catch (error) {
-      toast.setToast('error', 'Error', error.message)
+      toast.setToast('error', 'Error', error.response.data.message)
     }
   }
 

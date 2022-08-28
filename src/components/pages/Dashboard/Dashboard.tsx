@@ -21,7 +21,7 @@ function Dashboard() {
         })
         isMounted && response.status === 200 && setMerchant(response.data)
       } catch (error) {
-        toast.setToast('error', 'Error', error.message)
+        toast.setToast('error', 'Error', error.response.data.message)
       }
     }
     getMerchant()
