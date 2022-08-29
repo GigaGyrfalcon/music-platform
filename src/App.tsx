@@ -3,6 +3,7 @@ import './App.scss'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import DashboardLayout from './components/layouts/DashboardLayout'
 import PublicLayout from './components/layouts/PublicLayout'
 import Activate from './components/pages/Activate'
 import Branch from './components/pages/Branch'
@@ -21,15 +22,17 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/activate/:token" element={<Activate />} />
-        {/* Protected routes */}
-        <Route element={<RequiredAuth />}>
+      </Route>
+      {/* Protected routes */}
+      <Route element={<RequiredAuth />}>
+        <Route path="/" element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/branch" element={<Branch />} />
         </Route>
-
-        {/* Catch all */}
-        <Route path="*" element={<PageNotFound />} />
       </Route>
+
+      {/* Catch all */}
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
 }

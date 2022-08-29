@@ -1,2 +1,5 @@
+export { default as BreadCrumb } from './BreadCrumb/BreadCrumb'
+export { default as DashboardFooter } from './DashboardFooter/DashboardFooter'
+export { default as DashboardHeader } from './DashboardHeader/DashboardHeader'
 export { default as Footer } from './Footer/Footer'
 export { default as Header } from './Header/Header'

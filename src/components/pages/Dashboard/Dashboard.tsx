@@ -31,12 +31,14 @@ function Dashboard() {
     }
   }, [])
 
-  return (
+  return merchant ? (
     <div className="dashboard">
       <h2 className="heading-2">{t('dashboard')}</h2>
       <p>This is secure page, only authorized user can have access!</p>
       {merchant && <pre>{JSON.stringify(merchant, undefined, 2)}</pre>}
     </div>
+  ) : (
+    <p>Loading...</p>
   )
 }
 

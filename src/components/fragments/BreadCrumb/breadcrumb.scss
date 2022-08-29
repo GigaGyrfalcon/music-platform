@@ -1,0 +1,8 @@
+@import 'primeflex/primeflex.scss';
+
+.breadcrumb {
+  border-radius: 0;
+  border-color: transparent;
+  border-bottom: 1px solid #e8e8e8;
+  @include styleclass('text-base');
+}
