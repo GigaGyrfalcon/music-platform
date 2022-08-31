@@ -5,10 +5,26 @@ export default axios.create({
   baseURL,
 })
 
-export const axiosPrivate = axios.create({
-  baseURL,
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-})
+export const axiosPrivate = (token: string) => {
+  const ax = axios.create({
+    baseURL,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  ax.interceptors.response.use(
+    (response) => {
+      return response
+    },
+    async (error) => {
+      if (error.response.status === 401) {
+        localStorage.removeItem('token')
+        window.location.href = '/login'
+      }
+      return Promise.reject(error)
+    }
+  )
+
+  return ax
+}

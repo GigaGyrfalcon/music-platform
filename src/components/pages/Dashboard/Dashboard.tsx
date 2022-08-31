@@ -16,7 +16,8 @@ function Dashboard() {
     const controller = new AbortController()
     const getMerchant = async () => {
       try {
-        const response = await axiosPrivate.get(`/merchant`, {
+        const token = localStorage.getItem('token') || ''
+        const response = await axiosPrivate(token).get(`/merchant`, {
           signal: controller.signal,
         })
         isMounted && response.status === 200 && setMerchant(response.data)
