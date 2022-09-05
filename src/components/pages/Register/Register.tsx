@@ -18,9 +18,8 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import axios from '../../../api'
-import { Address } from '../../../domain/address/Address'
-import { User } from '../../../domain/user/User'
-import { UserRoles } from '../../../domain/user/UserRole'
+import { Address } from '../../../domain/address'
+import { User, UserRoles } from '../../../domain/user'
 import useToast from '../../../hooks/useToast'
 
 export type RegisterInputs = {
