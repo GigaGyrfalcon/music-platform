@@ -4,9 +4,9 @@ import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
 
-import { User } from '../../domain/user'
+import { User } from '../../../domain/user'
 
-function Users({ users }: { users: User[] }) {
+function UsersTable({ users }: { users: User[] }) {
   // const { t } = useTranslation() // TODO: use i18n
 
   const editUser = (rowData: User) => {
@@ -64,4 +64,4 @@ function Users({ users }: { users: User[] }) {
   )
 }
 
-export default Users
+export default UsersTable

@@ -5,8 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { axiosPrivate } from '../../../api'
 import { MerchantSchema } from '../../../domain/merchant'
 import useToast from '../../../hooks/useToast'
-import Branches from '../../Branches'
-import Users from '../../Users'
+import { BranchesTable, UsersTable } from '../../fragments'
 
 function Dashboard() {
   const toast = useToast()
@@ -43,8 +42,8 @@ function Dashboard() {
     <div className="dashboard">
       {merchant && (
         <>
-          <Users users={merchant.users} />
-          <Branches branches={merchant.branches} />
+          <UsersTable users={merchant.users} />
+          <BranchesTable branches={merchant.branches} />
         </>
       )}
     </div>

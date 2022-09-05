@@ -4,7 +4,7 @@ import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
 
-import { Branch } from '../../domain/branch'
+import { Branch } from '../../../domain/branch'
 
 function Branches({ branches }: { branches: Branch[] }) {
   // const { t } = useTranslation() // TODO: use i18n
