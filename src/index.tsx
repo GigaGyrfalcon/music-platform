@@ -15,17 +15,17 @@ import reportWebVitals from './reportWebVitals'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
-    <Suspense fallback="Loading...">
-      <BrowserRouter>
-        <ToastProvider>
-          <AuthProvider>
-            <App />
-          </AuthProvider>
-        </ToastProvider>
-      </BrowserRouter>
-    </Suspense>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Suspense fallback="Loading...">
+    <BrowserRouter>
+      <ToastProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </ToastProvider>
+    </BrowserRouter>
+  </Suspense>
+  // </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function

@@ -8,7 +8,11 @@ import { useNavigate } from 'react-router-dom'
 import { axiosPrivate } from '../../../api'
 import useToast from '../../../hooks/useToast'
 
-function DashboardHeader() {
+function DashboardHeader({
+  openSideBar,
+}: {
+  openSideBar: (visible: boolean) => void
+}) {
   const toast = useToast()
   const navigate = useNavigate()
   const menu = useRef<Menu>(null)
@@ -40,6 +44,7 @@ function DashboardHeader() {
       <Button
         className="p-button-raised p-button-rounded p-button-plain p-button-text text-white"
         icon="pi pi-bars"
+        onClick={() => openSideBar(true)}
       />
       <img src="/images/placeholder-logo.png" />
       <Button
