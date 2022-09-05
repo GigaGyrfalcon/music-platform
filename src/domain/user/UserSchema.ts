@@ -1,11 +1,13 @@
 import { z } from 'zod'
 
 import { AddressSchema } from '../address'
-import { UserRoleSchema } from '.'
+export const UserRoles = ['admin', 'media'] as const
+
+export const UserRoleSchema = z.union([z.literal('admin'), z.literal('media')])
 
 export const UserSchema = z.object({
   first_name: z.string(),
-  middle_name: z.string(),
+  middle_name: z.string().optional(),
   last_name: z.string(),
   position: z.string(),
   email: z.string(),
@@ -16,3 +18,4 @@ export const UserSchema = z.object({
 })
 
 export type User = z.infer<typeof UserSchema>
+export type UserRole = z.infer<typeof UserRoleSchema>

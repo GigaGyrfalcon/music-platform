@@ -9,7 +9,8 @@ export const ToastContext = createContext<{
   setToast: (
     severity: ToastSeverityType,
     summary: string,
-    detail: string
+    detail: string,
+    sticky?: boolean
   ) => void
 }>({
   setToast: () => {
@@ -23,8 +24,9 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   const setToast = (
     severity: ToastSeverityType,
     summary: string,
-    detail: string
-  ) => toast.current?.show({ severity, summary, detail })
+    detail: string,
+    sticky = false
+  ) => toast.current?.show({ severity, summary, detail, sticky })
 
   return (
     <ToastContext.Provider value={{ setToast }}>

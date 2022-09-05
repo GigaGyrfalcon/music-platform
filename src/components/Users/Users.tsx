@@ -4,20 +4,22 @@ import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
 
-function Users({ users }: any) {
+import { User } from '../../domain/user'
+
+function Users({ users }: { users: User[] }) {
   // const { t } = useTranslation() // TODO: use i18n
 
-  const editUser = (rowData: any) => {
+  const editUser = (rowData: User) => {
     console.log('editUser', rowData)
   }
-  const removeUser = (rowData: any) => {
+  const removeUser = (rowData: User) => {
     console.log('removeUser', rowData)
   }
   const addUser = () => {
     console.log('addUser')
   }
 
-  const actionBodyTemplate = (rowData: any) => {
+  const actionBodyTemplate = (rowData: User) => {
     return (
       <>
         <Button

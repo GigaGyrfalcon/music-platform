@@ -4,20 +4,22 @@ import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
 
-function Branches({ branches }: any) {
+import { Branch } from '../../domain/branch'
+
+function Branches({ branches }: { branches: Branch[] }) {
   // const { t } = useTranslation() // TODO: use i18n
 
-  const editBranch = (rowData: any) => {
+  const editBranch = (rowData: Branch) => {
     console.log('editBranch', rowData)
   }
-  const removeBranch = (rowData: any) => {
+  const removeBranch = (rowData: Branch) => {
     console.log('removeBranch', rowData)
   }
   const addBranch = () => {
     console.log('addBranch')
   }
 
-  const actionBodyTemplate = (rowData: any) => {
+  const actionBodyTemplate = (rowData: Branch) => {
     return (
       <>
         <Button
@@ -39,10 +41,11 @@ function Branches({ branches }: any) {
       <h3 className="mt-0">Branches</h3>
       {branches && (
         <DataTable value={branches} responsiveLayout="scroll">
-          <Column field="first_name" header="First Name"></Column>
-          <Column field="last_name" header="Last Name"></Column>
-          <Column field="email" header="Email"></Column>
-          <Column field="position" header="Position"></Column>
+          <Column field="name" header="First Name"></Column>
+          <Column field="address.address_line_1" header="Address"></Column>
+          <Column field="address.city" header="City"></Column>
+          <Column field="address.state" header="State"></Column>
+          <Column field="address.country" header="country"></Column>
           <Column
             body={actionBodyTemplate}
             exportable={false}

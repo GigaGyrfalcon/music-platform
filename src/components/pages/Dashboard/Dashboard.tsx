@@ -2,18 +2,15 @@ import './dashboard.scss'
 
 import React, { useEffect, useState } from 'react'
 
-// import { useTranslation } from 'react-i18next'
 import { axiosPrivate } from '../../../api'
+import { MerchantSchema } from '../../../domain/merchant'
 import useToast from '../../../hooks/useToast'
 import Branches from '../../Branches'
 import Users from '../../Users'
 
 function Dashboard() {
-  // const { t } = useTranslation()
   const toast = useToast()
-
   const [merchant, setMerchant] = useState({ users: [], branches: [] })
-  // const [users, setUsers] = useState([])
 
   useEffect(() => {
     let isMounted = true
@@ -21,10 +18,14 @@ function Dashboard() {
     const getMerchant = async () => {
       try {
         const token = localStorage.getItem('token') || ''
-        const response = await axiosPrivate(token).get(`/merchant`, {
+        const response = await axiosPrivate(token).get('/merchant', {
           signal: controller.signal,
         })
         if (isMounted && response.status === 200) {
+          const parsed = MerchantSchema.safeParse(response.data)
+          if (!parsed.success) {
+            toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
+          }
           setMerchant(response.data)
         }
       } catch (error) {
@@ -46,8 +47,6 @@ function Dashboard() {
           <Branches branches={merchant.branches} />
         </>
       )}
-
-      {/* {merchant && <pre>{JSON.stringify(merchant, undefined, 2)}</pre>} */}
     </div>
   ) : (
     <p>Loading...</p>
