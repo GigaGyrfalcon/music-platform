@@ -3,6 +3,7 @@ import { Card } from 'primereact/card'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { User } from '../../../domain/user'
 
@@ -38,7 +39,11 @@ function UsersTable({ users }: { users: User[] }) {
 
   return (
     <Card className="m-3">
-      <h3 className="mt-0">Users</h3>
+      <h3 className="mt-0">
+        <Link className="no-underline" to="/users">
+          Users
+        </Link>
+      </h3>
       {users && (
         <DataTable value={users} responsiveLayout="scroll">
           <Column field="first_name" header="First Name"></Column>

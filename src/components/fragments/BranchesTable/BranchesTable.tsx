@@ -3,6 +3,7 @@ import { Card } from 'primereact/card'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { Branch } from '../../../domain/branch'
 
@@ -38,7 +39,11 @@ function Branches({ branches }: { branches: Branch[] }) {
 
   return (
     <Card className="m-3">
-      <h3 className="mt-0">Branches</h3>
+      <h3 className="mt-0">
+        <Link className="no-underline" to="/branches">
+          Branches
+        </Link>
+      </h3>
       {branches && (
         <DataTable value={branches} responsiveLayout="scroll">
           <Column field="name" header="First Name"></Column>

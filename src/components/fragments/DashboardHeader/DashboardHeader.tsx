@@ -29,8 +29,9 @@ function DashboardHeader({
       icon: 'pi pi-sign-out',
       command: async () => {
         try {
-          const token = localStorage.getItem('token') || ''
-          await axiosPrivate(token).post('/sign_out')
+          await axiosPrivate(`${localStorage.getItem('token')}`).post(
+            '/sign_out'
+          )
           localStorage.removeItem('token')
           navigate('/', { replace: true })
         } catch (error) {

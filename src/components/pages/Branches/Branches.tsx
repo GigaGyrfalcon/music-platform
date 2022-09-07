@@ -1,5 +1,29 @@
+import { useQuery } from '@tanstack/react-query'
+
+import { axiosPrivate } from '../../../api'
+import { MerchantSchema } from '../../../domain/merchant'
+import useToast from '../../../hooks/useToast'
+import { BranchesTable } from '../../fragments'
+
 function Branch() {
-  return <h2>Branch</h2>
+  const toast = useToast()
+
+  const getMerchant = async () => {
+    return await axiosPrivate(`${localStorage.getItem('token')}`).get(
+      '/merchant'
+    )
+  }
+
+  const { data, isSuccess } = useQuery(['merchant'], getMerchant)
+
+  if (isSuccess) {
+    const parsed = MerchantSchema.safeParse(data.data)
+    if (!parsed.success) {
+      toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
+    }
+  }
+
+  return isSuccess ? <BranchesTable branches={data.data.branches} /> : null
 }
 
 export default Branch

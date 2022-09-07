@@ -1,6 +1,7 @@
 import './dashboard.scss'
 
-import React, { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import React from 'react'
 
 import { axiosPrivate } from '../../../api'
 import { MerchantSchema } from '../../../domain/merchant'
@@ -9,47 +10,28 @@ import { BranchesTable, UsersTable } from '../../fragments'
 
 function Dashboard() {
   const toast = useToast()
-  const [merchant, setMerchant] = useState({ users: [], branches: [] })
 
-  useEffect(() => {
-    let isMounted = true
-    const controller = new AbortController()
-    const getMerchant = async () => {
-      try {
-        const token = localStorage.getItem('token') || ''
-        const response = await axiosPrivate(token).get('/merchant', {
-          signal: controller.signal,
-        })
-        if (isMounted && response.status === 200) {
-          const parsed = MerchantSchema.safeParse(response.data)
-          if (!parsed.success) {
-            toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
-          }
-          setMerchant(response.data)
-        }
-      } catch (error) {
-        toast.setToast('error', 'Error', error.response.data.message)
-      }
-    }
-    getMerchant()
-    return () => {
-      isMounted = false
-      controller.abort()
-    }
-  }, [])
+  const getMerchant = async () => {
+    return await axiosPrivate(`${localStorage.getItem('token')}`).get(
+      '/merchant'
+    )
+  }
 
-  return merchant ? (
+  const { data, isSuccess } = useQuery(['merchant'], getMerchant)
+
+  if (isSuccess) {
+    const parsed = MerchantSchema.safeParse(data.data)
+    if (!parsed.success) {
+      toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
+    }
+  }
+
+  return isSuccess ? (
     <div className="dashboard">
-      {merchant && (
-        <>
-          <UsersTable users={merchant.users} />
-          <BranchesTable branches={merchant.branches} />
-        </>
-      )}
+      <UsersTable users={data.data.users} />
+      <BranchesTable branches={data.data.branches} />
     </div>
-  ) : (
-    <p>Loading...</p>
-  )
+  ) : null
 }
 
 export default Dashboard

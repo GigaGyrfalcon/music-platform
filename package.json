@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanstack/react-query": "^4.2.3",
     "axios": "^0.27.2",
     "i18next": "^21.9.1",
     "i18next-http-backend": "^1.4.1",
