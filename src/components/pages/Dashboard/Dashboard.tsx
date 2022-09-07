@@ -1,7 +1,7 @@
 import './dashboard.scss'
 
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { axiosPrivate } from '../../../api'
 import { MerchantSchema } from '../../../domain/merchant'
@@ -19,12 +19,14 @@ function Dashboard() {
 
   const { data, isSuccess } = useQuery(['merchant'], getMerchant)
 
-  if (isSuccess) {
-    const parsed = MerchantSchema.safeParse(data.data)
-    if (!parsed.success) {
-      toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
+  useEffect(() => {
+    if (isSuccess) {
+      const parsed = MerchantSchema.safeParse(data.data)
+      if (!parsed.success) {
+        toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
+      }
     }
-  }
+  }, [isSuccess])
 
   return isSuccess ? (
     <div className="dashboard">
