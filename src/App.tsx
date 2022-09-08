@@ -10,6 +10,7 @@ import Branches from './components/pages/Branches'
 import Dashboard from './components/pages/Dashboard'
 import Home from './components/pages/Home'
 import Login from './components/pages/Login'
+import NewUser from './components/pages/NewUser'
 import PageNotFound from './components/pages/PageNotFound'
 import Register from './components/pages/Register'
 import RequiredAuth from './components/pages/RequireAuth'
@@ -30,6 +31,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/users/new" element={<NewUser />} />
         </Route>
       </Route>
 

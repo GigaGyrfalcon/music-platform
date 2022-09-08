@@ -16,9 +16,6 @@ function UsersTable({ users }: { users: User[] }) {
   const removeUser = (rowData: User) => {
     console.log('removeUser', rowData)
   }
-  const addUser = () => {
-    console.log('addUser')
-  }
 
   const actionBodyTemplate = (rowData: User) => {
     return (
@@ -39,11 +36,11 @@ function UsersTable({ users }: { users: User[] }) {
 
   return (
     <Card className="m-3">
-      <h3 className="mt-0">
+      <h2 className="mt-0">
         <Link className="no-underline" to="/users">
           Users
         </Link>
-      </h3>
+      </h2>
       {users && (
         <DataTable value={users} responsiveLayout="scroll">
           <Column field="first_name" header="First Name"></Column>
@@ -58,12 +55,13 @@ function UsersTable({ users }: { users: User[] }) {
         </DataTable>
       )}
       <div className="flex justify-content-end mt-3">
-        <Button
-          icon="pi pi-user-plus"
-          className="p-button-info"
-          onClick={() => addUser()}
-          label="Add User"
-        />
+        <Link className="no-underline" to="/users/new">
+          <Button
+            icon="pi pi-user-plus"
+            className="p-button-info"
+            label="Add User"
+          />
+        </Link>
       </div>
     </Card>
   )

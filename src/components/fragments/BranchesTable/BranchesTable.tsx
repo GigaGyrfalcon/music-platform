@@ -39,11 +39,11 @@ function Branches({ branches }: { branches: Branch[] }) {
 
   return (
     <Card className="m-3">
-      <h3 className="mt-0">
+      <h2 className="mt-0">
         <Link className="no-underline" to="/branches">
           Branches
         </Link>
-      </h3>
+      </h2>
       {branches && (
         <DataTable value={branches} responsiveLayout="scroll">
           <Column field="name" header="First Name"></Column>

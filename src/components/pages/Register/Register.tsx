@@ -18,8 +18,8 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import axios from '../../../api'
-import { Address } from '../../../domain/address'
-import { User, UserRoles } from '../../../domain/user'
+import { Address, addressDefaultValues } from '../../../domain/address'
+import { User, userDefaultValues, UserRoles } from '../../../domain/user'
 import useToast from '../../../hooks/useToast'
 
 export type RegisterInputs = {
@@ -34,32 +34,11 @@ function Register() {
   const toast = useToast()
   const [successMessage, setSuccessMessage] = useState('')
 
-  const defaultAddressValues = {
-    address_line_1: '',
-    address_line_2: '',
-    city: '',
-    state: '',
-    postal_code: '',
-    country: '',
-  }
-
-  const defaultUserValues = {
-    first_name: '',
-    middle_name: '',
-    last_name: '',
-    position: '',
-    email: '',
-    phone: '',
-    is_contact_person: false,
-    role: UserRoles[0],
-    address: defaultAddressValues,
-  }
-
   const defaultValues = {
     legal_name: '',
     description: '',
-    address: defaultAddressValues,
-    users: [defaultUserValues],
+    address: addressDefaultValues,
+    users: [userDefaultValues],
   }
 
   const { control, handleSubmit } = useForm<RegisterInputs>({ defaultValues })
@@ -327,8 +306,8 @@ function Register() {
                     placeholder={t('middle_name')}
                     {...field}
                   />
-                  <label htmlFor={`users.${i}.last_name`}>
-                    {t('last_name')}
+                  <label htmlFor={`users.${i}.middle_name`}>
+                    {t('middle_name')}
                   </label>
                 </span>
               </>
@@ -683,7 +662,7 @@ function Register() {
           label={t('add_user')}
           icon="pi pi-user-plus"
           className="p-button-sm p-button-outlined p-button-secondary"
-          onClick={() => append({ ...defaultUserValues })}
+          onClick={() => append({ ...userDefaultValues })}
         />
       </div>
 
