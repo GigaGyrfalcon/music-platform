@@ -49,17 +49,15 @@ function NewUsers() {
             }}
             render={({ field, fieldState }) => (
               <div className="wrap-field">
-                <span className="p-float-label mt-4">
-                  <InputText
-                    id="first_name"
-                    placeholder={t('first_name')}
-                    className={classNames({
-                      'p-invalid': fieldState.error,
-                    })}
-                    {...field}
-                  />
-                  <label htmlFor="first_name">{t('first_name')}</label>
-                </span>
+                <label htmlFor="first_name">{t('first_name')}</label>
+                <InputText
+                  id="first_name"
+                  placeholder={t('first_name')}
+                  className={classNames({
+                    'p-invalid': fieldState.error,
+                  })}
+                  {...field}
+                />
                 {fieldState.error && (
                   <small className="p-error mt-1">
                     {fieldState.error?.message}
@@ -73,14 +71,12 @@ function NewUsers() {
             control={control}
             render={({ field }) => (
               <div className="wrap-field">
-                <span className="p-float-label mt-4">
-                  <InputText
-                    id="middle_name"
-                    placeholder={t('middle_name')}
-                    {...field}
-                  />
-                  <label htmlFor="middle_name">{t('middle_name')}</label>
-                </span>
+                <label htmlFor="middle_name">{t('middle_name')}</label>
+                <InputText
+                  id="middle_name"
+                  placeholder={t('middle_name')}
+                  {...field}
+                />
               </div>
             )}
           />
@@ -92,17 +88,15 @@ function NewUsers() {
             }}
             render={({ field, fieldState }) => (
               <div className="wrap-field">
-                <span className="p-float-label mt-4">
-                  <InputText
-                    id="last_name"
-                    placeholder={t('last_name')}
-                    className={classNames({
-                      'p-invalid': fieldState.error,
-                    })}
-                    {...field}
-                  />
-                  <label htmlFor="last_name">{t('last_name')}</label>
-                </span>
+                <label htmlFor="last_name">{t('last_name')}</label>
+                <InputText
+                  id="last_name"
+                  placeholder={t('last_name')}
+                  className={classNames({
+                    'p-invalid': fieldState.error,
+                  })}
+                  {...field}
+                />
                 {fieldState.error && (
                   <small className="p-error mt-1">
                     {fieldState.error?.message}
@@ -119,17 +113,15 @@ function NewUsers() {
             }}
             render={({ field, fieldState }) => (
               <div className="wrap-field">
-                <span className="p-float-label mt-4">
-                  <InputText
-                    id="position"
-                    placeholder={t('position')}
-                    className={classNames({
-                      'p-invalid': fieldState.error,
-                    })}
-                    {...field}
-                  />
-                  <label htmlFor="position">{t('position')}</label>
-                </span>
+                <label htmlFor="position">{t('position')}</label>
+                <InputText
+                  id="position"
+                  placeholder={t('position')}
+                  className={classNames({
+                    'p-invalid': fieldState.error,
+                  })}
+                  {...field}
+                />
                 {fieldState.error && (
                   <small className="p-error mt-1">
                     {fieldState.error?.message}
@@ -150,17 +142,15 @@ function NewUsers() {
             }}
             render={({ field, fieldState }) => (
               <div className="wrap-field">
-                <span className="p-float-label mt-4">
-                  <InputText
-                    id="email"
-                    placeholder={t('email')}
-                    className={classNames({
-                      'p-invalid': fieldState.error,
-                    })}
-                    {...field}
-                  />
-                  <label htmlFor="email">{t('email')}</label>
-                </span>
+                <label htmlFor="email">{t('email')}</label>
+                <InputText
+                  id="email"
+                  placeholder={t('email')}
+                  className={classNames({
+                    'p-invalid': fieldState.error,
+                  })}
+                  {...field}
+                />
                 {fieldState.error && (
                   <small className="p-error mt-1">
                     {fieldState.error?.message}
@@ -177,17 +167,15 @@ function NewUsers() {
             }}
             render={({ field, fieldState }) => (
               <div className="wrap-field">
-                <span className="p-float-label mt-4">
-                  <InputText
-                    id="phone"
-                    placeholder={t('phone')}
-                    className={classNames({
-                      'p-invalid': fieldState.error,
-                    })}
-                    {...field}
-                  />
-                  <label htmlFor="phone">{t('phone')}</label>
-                </span>
+                <label htmlFor="phone">{t('phone')}</label>
+                <InputText
+                  id="phone"
+                  placeholder={t('phone')}
+                  className={classNames({
+                    'p-invalid': fieldState.error,
+                  })}
+                  {...field}
+                />
                 {fieldState.error && (
                   <small className="p-error mt-1">
                     {fieldState.error?.message}
@@ -201,22 +189,15 @@ function NewUsers() {
             control={control}
             render={({ field }) => (
               <div className="wrap-field">
-                <span className="block mt-3">
-                  <label
-                    className="block mb-2 text-base text-700"
-                    htmlFor="is_contact_person"
-                  >
-                    {t('contact_person')}
-                  </label>
-                  <SelectButton
-                    id="is_contact_person"
-                    {...field}
-                    options={[
-                      { label: t('yes'), value: true },
-                      { label: t('no'), value: false },
-                    ]}
-                  />
-                </span>
+                <label htmlFor="is_contact_person">{t('contact_person')}</label>
+                <SelectButton
+                  id="is_contact_person"
+                  {...field}
+                  options={[
+                    { label: t('yes'), value: true },
+                    { label: t('no'), value: false },
+                  ]}
+                />
               </div>
             )}
           />
@@ -225,22 +206,15 @@ function NewUsers() {
             control={control}
             render={({ field }) => (
               <div className="wrap-field">
-                <span className="block mt-3">
-                  <label
-                    className="block mb-2 text-base text-700"
-                    htmlFor="role"
-                  >
-                    {t('role')}
-                  </label>
-                  <SelectButton
-                    id="role"
-                    {...field}
-                    options={UserRoles.map((role) => ({
-                      label: t(role),
-                      value: role,
-                    }))}
-                  />
-                </span>
+                <label htmlFor="role">{t('role')}</label>
+                <SelectButton
+                  id="role"
+                  {...field}
+                  options={UserRoles.map((role) => ({
+                    label: t(role),
+                    value: role,
+                  }))}
+                />
               </div>
             )}
           />

@@ -9,6 +9,6 @@ export const userDefaultValues = {
   email: '',
   phone: '',
   is_contact_person: false,
-  role: UserRoles[0],
+  role: UserRoles[1],
   address: addressDefaultValues,
 }

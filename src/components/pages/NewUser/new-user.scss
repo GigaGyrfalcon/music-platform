@@ -12,6 +12,9 @@
   gap: 1rem;
   max-width: 1280px;
   .wrap-field {
+    label {
+      @include styleclass('block mb-2 text-base text-700');
+    }
     .p-inputtext {
       width: 100%;
     }
