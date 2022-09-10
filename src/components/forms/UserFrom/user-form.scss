@@ -1,11 +1,5 @@
 @import 'primeflex/primeflex.scss';
 
-.new-user {
-  .buttons {
-    @include styleclass('w-full flex');
-  }
-}
-
 .fields-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -26,12 +20,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
- 
 
 @media screen and (min-width: 1024px) {
   .fields-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-    
-

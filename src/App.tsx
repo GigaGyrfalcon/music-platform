@@ -8,6 +8,7 @@ import PublicLayout from './components/layouts/PublicLayout'
 import Activate from './components/pages/Activate'
 import Branches from './components/pages/Branches'
 import Dashboard from './components/pages/Dashboard'
+import EditUser from './components/pages/EditUser'
 import Home from './components/pages/Home'
 import Login from './components/pages/Login'
 import NewUser from './components/pages/NewUser'
@@ -32,6 +33,7 @@ function App() {
           <Route path="/branches" element={<Branches />} />
           <Route path="/users" element={<Users />} />
           <Route path="/users/new" element={<NewUser />} />
+          <Route path="/users/:id/edit" element={<EditUser />} />
         </Route>
       </Route>
 

@@ -19,6 +19,7 @@
   "country": "ქვეყანა",
   "users": "მომხმარებლები",
   "add_user": "დამატება",
+  "edit_user": "რედაქტირება",
   "remove_user": "წაშლა",
   "first_name": "სახელი",
   "middle_name": "მეორე სახელი",
@@ -40,5 +41,8 @@
     "min_length": "{{field}} ველი უნდა შეიცავდეს მინიმუმ {{min_length}} სიმბოლოს",
     "passwords_do_not_match": "პაროლები არ ემთხვევა",
     "invalid_email": "ელ-ფოსტა არასწორია"
+  },
+  "button": {
+    "submit": "გაგზავნა"
   }
 }

@@ -10,9 +10,6 @@ import { User } from '../../../domain/user'
 function UsersTable({ users }: { users: User[] }) {
   // const { t } = useTranslation() // TODO: use i18n
 
-  const editUser = (rowData: User) => {
-    console.log('editUser', rowData)
-  }
   const removeUser = (rowData: User) => {
     console.log('removeUser', rowData)
   }
@@ -20,11 +17,12 @@ function UsersTable({ users }: { users: User[] }) {
   const actionBodyTemplate = (rowData: User) => {
     return (
       <>
-        <Button
-          icon="pi pi-pencil"
-          className="p-button-rounded p-button-success mr-2"
-          onClick={() => editUser(rowData)}
-        />
+        <Link className="no-underline" to={`/users/${rowData.id}/edit`}>
+          <Button
+            icon="pi pi-pencil"
+            className="p-button-rounded p-button-success mr-2"
+          />
+        </Link>
         <Button
           icon="pi pi-trash"
           className="p-button-rounded p-button-warning"
