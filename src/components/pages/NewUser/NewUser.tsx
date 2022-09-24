@@ -1,13 +1,17 @@
 import { Card } from 'primereact/card'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'
 import { User, userDefaultValues } from '../../../domain/user'
+import useToast from '../../../hooks/useToast'
 import UserForm from '../../forms/UserFrom/UserFrom'
 
 function NewUsers() {
   const { t } = useTranslation()
+  const toast = useToast()
+  const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<User> = async (values: FieldValues) => {
     try {
@@ -15,10 +19,15 @@ function NewUsers() {
         `${localStorage.getItem('token')}`
       ).post('/user', values)
       if (response.status === 200) {
-        alert('User created successfully')
+        toast.setToast(
+          'success',
+          t('messages.success'),
+          t('messages.user_created_successfully')
+        )
+        navigate('/users', { replace: true })
       }
     } catch (error) {
-      alert('Error creating user')
+      toast.setToast('error', t('messages.error_creating_user'), error)
     }
   }
 

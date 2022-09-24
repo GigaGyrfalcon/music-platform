@@ -3,7 +3,7 @@ import { Card } from 'primereact/card'
 import React, { useEffect } from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'
 import { User, UserSchema } from '../../../domain/user'
@@ -14,6 +14,7 @@ function EditUser() {
   const toast = useToast()
   const { t } = useTranslation()
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const getUser = async () => {
     return await axiosPrivate(`${localStorage.getItem('token')}`).get(
@@ -37,10 +38,15 @@ function EditUser() {
         `${localStorage.getItem('token')}`
       ).put('/user', values)
       if (response.status === 200) {
-        alert('User updated successfully')
+        toast.setToast(
+          'success',
+          t('messages.success'),
+          t('messages.user_updated_successfully')
+        )
+        navigate('/users', { replace: true })
       }
     } catch (error) {
-      alert('Error updating user')
+      toast.setToast('error', t('messages.error_updating_user'), error)
     }
   }
 

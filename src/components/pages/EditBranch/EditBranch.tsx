@@ -3,7 +3,7 @@ import { Card } from 'primereact/card'
 import React, { useEffect } from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'
 import { Branch, BranchSchema } from '../../../domain/branch'
@@ -14,6 +14,7 @@ function EditBranch() {
   const toast = useToast()
   const { t } = useTranslation()
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const getBranch = async () => {
     return await axiosPrivate(`${localStorage.getItem('token')}`).get(
@@ -37,10 +38,15 @@ function EditBranch() {
         `${localStorage.getItem('token')}`
       ).put('/branch', values)
       if (response.status === 200) {
-        alert('Branch updated successfully')
+        toast.setToast(
+          'success',
+          t('success'),
+          t('messages.branch_updated_successfully')
+        )
+        navigate('/branches', { replace: true })
       }
     } catch (error) {
-      alert('Error updating branch')
+      toast.setToast('error', t('messages.error_updating_branch'), error)
     }
   }
 

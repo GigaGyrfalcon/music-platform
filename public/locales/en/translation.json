@@ -43,7 +43,15 @@
     "successfully_registered": "Successfully registered",
     "min_length": "{{field}} must be at least {{min_length}} characters long",
     "passwords_do_not_match": "Passwords do not match",
-    "invalid_email": "Invalid Email"
+    "invalid_email": "Invalid Email",
+    "success": "Success",
+    "branch_created_successfully": "Branch created successfully",
+    "error_creating_branch": "Error creating branch",
+    "user_created_successfully": "User created successfully",
+    "error_creating_user": "Error creating user",
+    "user_updated_successfully": "User updated successfully",
+    "branch_updated_successfully": "Branch updated successfully",
+    "error_updating_branch": "Error updating branch"
   },
   "button": {
     "submit": "Submit"

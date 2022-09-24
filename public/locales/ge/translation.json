@@ -43,7 +43,15 @@
     "successfully_registered": "თქვენ წარმატებით რეგისტრირდით",
     "min_length": "{{field}} ველი უნდა შეიცავდეს მინიმუმ {{min_length}} სიმბოლოს",
     "passwords_do_not_match": "პაროლები არ ემთხვევა",
-    "invalid_email": "ელ-ფოსტა არასწორია"
+    "invalid_email": "ელ-ფოსტა არასწორია",
+    "success": "წარმატება",
+    "branch_created_successfully": "ფილიალი წარმატებით შექმნილია",
+    "error_creating_branch": "ფილიალის შექმნისას შეცდომა",
+    "user_created_successfully": "იუზერი წარმატებით შექმნილია",
+    "error_creating_user": "იუზერის შექმნისას შეცდომა",
+    "user_updated_successfully": "იუზერი წარმატებით განახლდა",
+    "branch_updated_successfully": "ფილიალი წარმატებით განახლდა",
+    "error_updating_branch": "ფილიალის განახლებისას შეცდომა"
   },
   "button": {
     "submit": "გაგზავნა"
