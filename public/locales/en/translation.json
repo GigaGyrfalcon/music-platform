@@ -35,6 +35,7 @@
   "media": "Media",
   "user_address": "User address",
   "new_user": "New user {{number}}",
+  "branches": "Branches",
   "messages": {
     "required": "{{field}} is required",
     "successfully_registered": "Successfully registered",

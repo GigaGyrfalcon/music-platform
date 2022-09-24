@@ -3,42 +3,37 @@ import { Card } from 'primereact/card'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { User } from '../../../domain/user'
 
 function UsersTable({ users }: { users: User[] }) {
-  // const { t } = useTranslation() // TODO: use i18n
+  const { t } = useTranslation()
 
-  const removeUser = (rowData: User) => {
-    console.log('removeUser', rowData)
+  const removeUser = (data: User) => {
+    console.log('removeUser', data)
   }
 
-  const actionBodyTemplate = (rowData: User) => {
+  const actionBodyTemplate = (data: User) => {
     return (
       <>
-        <Link className="no-underline" to={`/users/${rowData.id}/edit`}>
-          <Button
-            icon="pi pi-pencil"
-            className="p-button-rounded p-button-success mr-2"
-          />
+        <Link className="no-underline" to={`/users/${data.id}/edit`}>
+          <span className="px-1 text-700 pi pi-pencil"></span>
         </Link>
-        <Button
-          icon="pi pi-trash"
-          className="p-button-rounded p-button-warning"
-          onClick={() => removeUser(rowData)}
-        />
+        <span
+          className="px-1 cursor-pointer text-700 pi pi-trash"
+          onClick={() => removeUser(data)}
+        ></span>
       </>
     )
   }
 
   return (
     <Card className="m-3">
-      <h2 className="mt-0">
-        <Link className="no-underline" to="/users">
-          Users
-        </Link>
-      </h2>
+      <Link className="no-underline" to="/users">
+        <h2 className="mt-0 text-700">{t('users')}</h2>
+      </Link>
       {users && (
         <DataTable value={users} responsiveLayout="scroll">
           <Column field="first_name" header="First Name"></Column>

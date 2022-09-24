@@ -20,7 +20,7 @@ function EditUsers() {
       `/user/${id}`
     )
   }
-  const { data, isSuccess } = useQuery(['merchant'], getUser)
+  const { data, isSuccess } = useQuery(['user'], getUser)
 
   useEffect(() => {
     if (isSuccess) {
