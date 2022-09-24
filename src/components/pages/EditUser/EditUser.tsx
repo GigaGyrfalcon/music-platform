@@ -21,7 +21,7 @@ function EditUser() {
       `/user/${id}`
     )
   }
-  const { data, isSuccess } = useQuery(['user'], getUser)
+  const { data, isSuccess } = useQuery(['user', id], getUser)
 
   useEffect(() => {
     if (isSuccess) {

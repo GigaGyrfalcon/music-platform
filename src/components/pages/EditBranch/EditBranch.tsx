@@ -21,7 +21,7 @@ function EditBranch() {
       `/branch/${id}`
     )
   }
-  const { data, isSuccess } = useQuery(['branch'], getBranch)
+  const { data, isSuccess } = useQuery(['branch', id], getBranch)
 
   useEffect(() => {
     if (isSuccess) {
