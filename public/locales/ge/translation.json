@@ -36,6 +36,8 @@
   "user_address": "მომხმარებლის მისამართი",
   "new_user": "ახალი იუზერი {{number}}",
   "branches": "ფილიალები",
+  "edit_branch": "რედაქტირება",
+  "add_branch": "დამატება",
   "messages": {
     "required": "{{field}} სავალდებულოა",
     "successfully_registered": "თქვენ წარმატებით რეგისტრირდით",

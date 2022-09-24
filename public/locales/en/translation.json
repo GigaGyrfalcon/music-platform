@@ -36,6 +36,8 @@
   "user_address": "User address",
   "new_user": "New user {{number}}",
   "branches": "Branches",
+  "edit_branch": "Edit branch",
+  "add_branch": "Add branch",
   "messages": {
     "required": "{{field}} is required",
     "successfully_registered": "Successfully registered",

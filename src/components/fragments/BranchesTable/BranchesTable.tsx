@@ -52,12 +52,14 @@ function Branches({ branches }: { branches: Branch[] }) {
         </DataTable>
       )}
       <div className="flex justify-content-end mt-3">
-        <Button
-          icon="pi pi-plus"
-          className="p-button-info"
-          onClick={() => addBranch()}
-          label="Add Branch"
-        />
+        <Link className="no-underline" to="/branches/new">
+          <Button
+            icon="pi pi-plus"
+            className="p-button-info"
+            onClick={() => addBranch()}
+            label="Add Branch"
+          />
+        </Link>
       </div>
     </Card>
   )

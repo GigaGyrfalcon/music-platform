@@ -6,50 +6,50 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'
-import { User, UserSchema } from '../../../domain/user'
+import { Branch, BranchSchema } from '../../../domain/branch'
 import useToast from '../../../hooks/useToast'
-import UserForm from '../../forms/UserFrom/UserFrom'
+import BranchForm from '../../forms/BranchFrom/BranchFrom'
 
-function EditUser() {
+function EditBranch() {
   const toast = useToast()
   const { t } = useTranslation()
   const { id } = useParams()
 
-  const getUser = async () => {
+  const getBranch = async () => {
     return await axiosPrivate(`${localStorage.getItem('token')}`).get(
-      `/user/${id}`
+      `/branch/${id}`
     )
   }
-  const { data, isSuccess } = useQuery(['user'], getUser)
+  const { data, isSuccess } = useQuery(['branch'], getBranch)
 
   useEffect(() => {
     if (isSuccess) {
-      const parsed = UserSchema.safeParse(data.data)
+      const parsed = BranchSchema.safeParse(data.data)
       if (!parsed.success) {
         toast.setToast('warn', 'warning', `${parsed.error.message}`, true)
       }
     }
   }, [isSuccess])
 
-  const onSubmit: SubmitHandler<User> = async (values: FieldValues) => {
+  const onSubmit: SubmitHandler<Branch> = async (values: FieldValues) => {
     try {
       const response = await axiosPrivate(
         `${localStorage.getItem('token')}`
-      ).put('/user', values)
+      ).put('/branch', values)
       if (response.status === 200) {
-        alert('User updated successfully')
+        alert('Branch updated successfully')
       }
     } catch (error) {
-      alert('Error updating user')
+      alert('Error updating branch')
     }
   }
 
   return isSuccess ? (
     <Card className="m-3">
-      <h2>{t('edit_user')}</h2>
-      <UserForm onSubmit={onSubmit} userDefaultValues={data.data} />
+      <h2>{t('edit_branch')}</h2>
+      <BranchForm onSubmit={onSubmit} branchDefaultValues={data.data} />
     </Card>
   ) : null
 }
 
-export default EditUser
+export default EditBranch

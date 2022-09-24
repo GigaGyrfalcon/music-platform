@@ -1,0 +1,28 @@
+@import 'primeflex/primeflex.scss';
+
+.fields-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 1280px;
+  .wrap-field {
+    label {
+      @include styleclass('block mb-2 text-base text-700');
+    }
+    .p-inputtext {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fields-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .fields-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -66,7 +66,7 @@ Authorization: Bearer
 GET http://127.0.0.1:8000/api/v1/merchant HTTP/1.1
 Authorization: Bearer e6283f01825bf7c09f050e9912898d7b 
 
-// Create breanch
+// Create branch
 POST http://127.0.0.1:8000/api/v1/branch HTTP/1.1
 Authorization: Bearer e6283f01825bf7c09f050e9912898d7b
 content-type: application/json
@@ -83,8 +83,16 @@ content-type: application/json
 	}
 }
 
-// Create breanch
+// Delete branch
 DELETE http://127.0.0.1:8000/api/v1/branch/9 HTTP/1.1
 Authorization: Bearer e6283f01825bf7c09f050e9912898d7b
+
+post http://127.0.0.1:8000/api/v1/search_music http/1.1
+authorization: bearer e1463439b97decebab48d9d7287f2354
+content-type: application/json
+
+{
+  "query": "metallica die die die"
+}
 
 
