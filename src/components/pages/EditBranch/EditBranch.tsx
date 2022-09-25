@@ -25,10 +25,7 @@ function EditBranch() {
   const [formValues, setFormValues] = useState(branchDefaultValues)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const interactiveItems = [
-    { label: t('general_info') },
-    { label: t('Address') },
-  ]
+  const steps = [{ label: t('general_info') }, { label: t('address') }]
 
   const getBranch = async () => {
     return await axiosPrivate(`${localStorage.getItem('token')}`).get(
@@ -81,12 +78,7 @@ function EditBranch() {
     <Card className="m-3">
       <h2>{t('edit_branch')}</h2>
 
-      <Steps
-        className="mb-3"
-        model={interactiveItems}
-        activeIndex={activeIndex ?? 0}
-        readOnly={false}
-      />
+      <Steps className="mb-3" model={steps} activeIndex={activeIndex ?? 0} />
 
       {activeIndex === 0 && (
         <BranchForm

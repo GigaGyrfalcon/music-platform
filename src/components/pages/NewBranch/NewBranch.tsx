@@ -19,10 +19,7 @@ function NewBranch() {
   const [formValues, setFormValues] = useState(branchDefaultValues)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const interactiveItems = [
-    { label: t('general_info') },
-    { label: t('Address') },
-  ]
+  const steps = [{ label: t('general_info') }, { label: t('address') }]
 
   const onSubmit: SubmitHandler<Branch> = async (values: Branch) => {
     setFormValues({ ...formValues, ...values })
@@ -56,12 +53,7 @@ function NewBranch() {
     <Card className="m-3">
       <h2>{t('add_branch')}</h2>
 
-      <Steps
-        className="mb-3"
-        model={interactiveItems}
-        activeIndex={activeIndex}
-        readOnly={false}
-      />
+      <Steps className="mb-3" model={steps} activeIndex={activeIndex} />
 
       {activeIndex === 0 && (
         <BranchForm

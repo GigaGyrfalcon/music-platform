@@ -53,7 +53,7 @@ function EditUser() {
   return isSuccess ? (
     <Card className="m-3">
       <h2>{t('edit_user')}</h2>
-      <UserForm onSubmit={onSubmit} userDefaultValues={data.data} />
+      <UserForm onSubmit={onSubmit} defaultValues={data.data} />
     </Card>
   ) : null
 }

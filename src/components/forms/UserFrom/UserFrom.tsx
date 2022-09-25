@@ -12,14 +12,16 @@ import { User, UserRoles } from '../../../domain/user'
 
 function UserForm({
   onSubmit,
-  userDefaultValues,
+  defaultValues,
+  submitButtonLabel = 'button.submit',
 }: {
   onSubmit: SubmitHandler<User>
-  userDefaultValues: User
+  defaultValues: User
+  submitButtonLabel?: string
 }) {
   const { t } = useTranslation()
   const { control, handleSubmit } = useForm<User>({
-    defaultValues: userDefaultValues,
+    defaultValues,
   })
 
   return (
@@ -204,7 +206,7 @@ function UserForm({
         />
       </div>
       <div className="flex justify-content-end mt-3">
-        <Button label={t('button.submit')} icon="pi pi-plus" type="submit" />
+        <Button label={t(submitButtonLabel)} type="submit" />
       </div>
     </form>
   )
