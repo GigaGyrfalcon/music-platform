@@ -1,19 +1,40 @@
 import { Card } from 'primereact/card'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
+import { Steps } from 'primereact/steps'
+import { useState } from 'react'
+import { SubmitHandler } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'
+import { Address } from '../../../domain/address'
 import { Branch, branchDefaultValues } from '../../../domain/branch'
 import useToast from '../../../hooks/useToast'
+import AddressForm from '../../forms/AddressFrom/AddressFrom'
 import BranchForm from '../../forms/BranchFrom/BranchFrom'
 
 function NewBranch() {
   const { t } = useTranslation()
   const toast = useToast()
   const navigate = useNavigate()
+  const [formValues, setFormValues] = useState(branchDefaultValues)
+  const [activeIndex, setActiveIndex] = useState(0)
 
-  const onSubmit: SubmitHandler<Branch> = async (values: FieldValues) => {
+  const interactiveItems = [
+    { label: t('general_info') },
+    { label: t('Address') },
+  ]
+
+  const onSubmit: SubmitHandler<Branch> = async (values: Branch) => {
+    setFormValues({ ...formValues, ...values })
+    setActiveIndex(1)
+  }
+
+  const onAddressSubmit: SubmitHandler<Address> = async (values: Address) => {
+    setFormValues({ ...formValues, address: values })
+    saveBranch({ ...formValues, address: values })
+  }
+
+  const saveBranch = async (values: Branch) => {
     try {
       const response = await axiosPrivate(
         `${localStorage.getItem('token')}`
@@ -34,10 +55,30 @@ function NewBranch() {
   return (
     <Card className="m-3">
       <h2>{t('add_branch')}</h2>
-      <BranchForm
-        onSubmit={onSubmit}
-        branchDefaultValues={branchDefaultValues}
+
+      <Steps
+        className="mb-3"
+        model={interactiveItems}
+        activeIndex={activeIndex}
+        readOnly={false}
       />
+
+      {activeIndex === 0 && (
+        <BranchForm
+          onSubmit={onSubmit}
+          defaultValues={formValues}
+          submitButtonLabel={'button.next'}
+        />
+      )}
+
+      {activeIndex === 1 && (
+        <AddressForm
+          onSubmit={onAddressSubmit}
+          defaultValues={formValues.address}
+          cancelButtonLabel={'button.back'}
+          cancelButtonFn={() => setActiveIndex(0)}
+        />
+      )}
     </Card>
   )
 }

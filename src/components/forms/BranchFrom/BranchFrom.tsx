@@ -3,7 +3,6 @@ import './branch-form.scss'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { classNames } from 'primereact/utils'
-import React from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -11,14 +10,16 @@ import { Branch } from '../../../domain/branch'
 
 function BranchForm({
   onSubmit,
-  branchDefaultValues,
+  defaultValues,
+  submitButtonLabel = 'button.submit',
 }: {
   onSubmit: SubmitHandler<Branch>
-  branchDefaultValues: Branch
+  defaultValues: Branch
+  submitButtonLabel?: string
 }) {
   const { t } = useTranslation()
   const { control, handleSubmit } = useForm<Branch>({
-    defaultValues: branchDefaultValues,
+    defaultValues,
   })
 
   return (
@@ -28,14 +29,14 @@ function BranchForm({
           name="name"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('name') }),
+            required: t('messages.required', { field: t('branch_name') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
-              <label htmlFor="name">{t('name')}</label>
+              <label htmlFor="name">{t('branch_name')}</label>
               <InputText
                 id="name"
-                placeholder={t('name')}
+                placeholder={t('branch_name')}
                 className={classNames({
                   'p-invalid': fieldState.error,
                 })}
@@ -51,7 +52,7 @@ function BranchForm({
         />
       </div>
       <div className="flex justify-content-end mt-3">
-        <Button label={t('button.submit')} icon="pi pi-plus" type="submit" />
+        <Button label={t(submitButtonLabel)} type="submit" />
       </div>
     </form>
   )

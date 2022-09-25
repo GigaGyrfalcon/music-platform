@@ -36,6 +36,7 @@
   "user_address": "User address",
   "new_user": "New user {{number}}",
   "branches": "Branches",
+  "branch_name": "Branch name",
   "edit_branch": "Edit branch",
   "add_branch": "Add branch",
   "messages": {
@@ -54,6 +55,9 @@
     "error_updating_branch": "Error updating branch"
   },
   "button": {
-    "submit": "Submit"
+    "submit": "Submit",
+    "save": "Save",
+    "next": "Next",
+    "back": "Back"
   }
 }

@@ -36,6 +36,7 @@
   "user_address": "მომხმარებლის მისამართი",
   "new_user": "ახალი იუზერი {{number}}",
   "branches": "ფილიალები",
+  "branch_name": "ფილიალის სახელი",
   "edit_branch": "რედაქტირება",
   "add_branch": "დამატება",
   "messages": {
@@ -54,6 +55,9 @@
     "error_updating_branch": "ფილიალის განახლებისას შეცდომა"
   },
   "button": {
-    "submit": "გაგზავნა"
+    "submit": "გაგზავნა",
+    "save": "შენახვა",
+    "next": "შემდეგი",
+    "back": "უკან"
   }
 }
