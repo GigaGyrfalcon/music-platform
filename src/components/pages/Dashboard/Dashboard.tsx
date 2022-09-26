@@ -31,7 +31,7 @@ function Dashboard() {
     }
   }, [isSuccess])
 
-  const acceptFn = async (id: string) => {
+  const acceptBranchDelete = async (id: string) => {
     try {
       await axiosPrivate(`${localStorage.getItem('token')}`).delete(
         `/branch/${id}`
@@ -51,13 +51,37 @@ function Dashboard() {
     confirm.setConfirmDialog({
       header: t('message.delete_branch'),
       message: t('message.delete_branch_confirmation'),
-      accept: () => acceptFn(id),
+      accept: () => acceptBranchDelete(id),
+    })
+  }
+
+  const acceptUserDelete = async (id: string) => {
+    try {
+      await axiosPrivate(`${localStorage.getItem('token')}`).delete(
+        `/user/${id}`
+      )
+      refetch()
+      toast.setToast(
+        'success',
+        t('message.success'),
+        t('message.user_deleted_successfully')
+      )
+    } catch (error) {
+      toast.setToast('error', t('message.error'), `${error}`)
+    }
+  }
+
+  const onUserDelete = (id: string) => {
+    confirm.setConfirmDialog({
+      header: t('message.delete_user'),
+      message: t('message.delete_user_confirmation'),
+      accept: () => acceptUserDelete(id),
     })
   }
 
   return isSuccess ? (
     <div className="dashboard">
-      <UsersTable users={data.data.users} />
+      <UsersTable users={data.data.users} onDelete={onUserDelete} />
       <BranchesTable branches={data.data.branches} onDelete={onBranchDelete} />
     </div>
   ) : null

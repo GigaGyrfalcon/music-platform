@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-function Header() {
+export function Header() {
   const { t } = useTranslation()
 
   return (
@@ -10,5 +10,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header

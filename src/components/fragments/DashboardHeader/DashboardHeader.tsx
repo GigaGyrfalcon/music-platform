@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { axiosPrivate } from '../../../api'
 import { useToast } from '../../../hooks'
 
-function DashboardHeader({
+export function DashboardHeader({
   openSideBar,
 }: {
   openSideBar: (visible: boolean) => void
@@ -58,5 +58,3 @@ function DashboardHeader({
     </header>
   )
 }
-
-export default DashboardHeader

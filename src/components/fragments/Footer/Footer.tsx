@@ -2,7 +2,7 @@ import { Button } from 'primereact/button'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-function Footer() {
+export function Footer() {
   const { i18n } = useTranslation()
 
   return (
@@ -20,5 +20,3 @@ function Footer() {
     </footer>
   )
 }
-
-export default Footer

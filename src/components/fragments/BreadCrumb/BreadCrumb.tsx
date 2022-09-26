@@ -3,7 +3,7 @@ import './breadcrumb.scss'
 import { BreadCrumb as PrimeBreadCrumb } from 'primereact/breadcrumb'
 import React from 'react'
 
-function BreadCrumb() {
+export function BreadCrumb() {
   const items = [
     {
       label: 'Dashboard',
@@ -17,5 +17,3 @@ function BreadCrumb() {
   }
   return <PrimeBreadCrumb model={items} home={home} className="breadcrumb" />
 }
-
-export default BreadCrumb

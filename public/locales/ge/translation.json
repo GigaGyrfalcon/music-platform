@@ -56,9 +56,12 @@
     "branch_updated_successfully": "ფილიალი წარმატებით განახლდა",
     "error": "შეცდომა",
     "error_updating_branch": "ფილიალის განახლებისას შეცდომა",
-    "branch_deleted_successfully": "ფილიალი წარმატებით წაიშალა",
     "delete_branch": "ფილიალის წაშლა",
     "delete_branch_confirmation": "დარწმუნებული ხართ რომ გსურთ ფილიალის წაშლა?",
+    "branch_deleted_successfully": "ფილიალი წარმატებით წაიშალა",
+    "delete_user": "იუზერის წაშლა",
+    "delete_user_confirmation": "დარწმუნებული ხართ რომ გსურთ იუზერის წაშლა?",
+    "user_deleted_successfully": "იუზერი წარმატებით წაიშალა"
   },
   "button": {
     "submit": "გაგზავნა",

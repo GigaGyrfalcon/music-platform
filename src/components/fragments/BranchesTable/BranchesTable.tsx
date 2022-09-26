@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 import { Branch } from '../../../domain/branch'
 
-function Branches({
+export function BranchesTable({
   branches,
   onDelete,
 }: {
@@ -61,5 +61,3 @@ function Branches({
     </Card>
   )
 }
-
-export default Branches

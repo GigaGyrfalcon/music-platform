@@ -8,12 +8,14 @@ import { Link } from 'react-router-dom'
 
 import { User } from '../../../domain/user'
 
-function UsersTable({ users }: { users: User[] }) {
+export function UsersTable({
+  users,
+  onDelete,
+}: {
+  users: User[]
+  onDelete: (id: string) => void
+}) {
   const { t } = useTranslation()
-
-  const removeUser = (data: User) => {
-    console.log('removeUser', data)
-  }
 
   const actionBodyTemplate = (data: User) => {
     return (
@@ -23,7 +25,7 @@ function UsersTable({ users }: { users: User[] }) {
         </Link>
         <span
           className="px-1 cursor-pointer text-700 pi pi-trash"
-          onClick={() => removeUser(data)}
+          onClick={() => onDelete(`${data.id}`)}
         ></span>
       </>
     )
@@ -59,5 +61,3 @@ function UsersTable({ users }: { users: User[] }) {
     </Card>
   )
 }
-
-export default UsersTable
