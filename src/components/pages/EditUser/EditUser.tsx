@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { axiosPrivate } from '../../../api'
 import { Address } from '../../../domain/address'
 import { User, userDefaultValues, UserSchema } from '../../../domain/user'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 import AddressForm from '../../forms/AddressFrom/AddressFrom'
 import UserForm from '../../forms/UserFrom/UserFrom'
 
@@ -60,13 +60,13 @@ function EditUser() {
       if (response.status === 200) {
         toast.setToast(
           'success',
-          t('messages.success'),
-          t('messages.user_updated_successfully')
+          t('message.success'),
+          t('message.user_updated_successfully')
         )
         navigate('/users', { replace: true })
       }
     } catch (error) {
-      toast.setToast('error', t('messages.error_updating_user'), error)
+      toast.setToast('error', t('message.error_updating_user'), error)
     }
   }
 

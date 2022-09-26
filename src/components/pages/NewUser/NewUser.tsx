@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { axiosPrivate } from '../../../api'
 import { Address } from '../../../domain/address'
 import { User, userDefaultValues } from '../../../domain/user'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 import AddressForm from '../../forms/AddressFrom/AddressFrom'
 import UserForm from '../../forms/UserFrom/UserFrom'
 
@@ -39,13 +39,13 @@ function NewUsers() {
       if (response.status === 200) {
         toast.setToast(
           'success',
-          t('messages.success'),
-          t('messages.user_created_successfully')
+          t('message.success'),
+          t('message.user_created_successfully')
         )
         navigate('/users', { replace: true })
       }
     } catch (error) {
-      toast.setToast('error', t('messages.error_creating_user'), error)
+      toast.setToast('error', t('message.error_creating_user'), error)
     }
   }
 

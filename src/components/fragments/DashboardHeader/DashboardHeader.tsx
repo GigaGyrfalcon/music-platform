@@ -6,7 +6,7 @@ import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 
 function DashboardHeader({
   openSideBar,

@@ -33,7 +33,7 @@ export default function AddressForm({
           name="address_line_1"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('address_line_1') }),
+            required: t('message.required', { field: t('address_line_1') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -73,7 +73,7 @@ export default function AddressForm({
           name="city"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('city') }),
+            required: t('message.required', { field: t('city') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -97,7 +97,7 @@ export default function AddressForm({
           name="state"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('state') }),
+            required: t('message.required', { field: t('state') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -121,7 +121,7 @@ export default function AddressForm({
           name="postal_code"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('postal_code') }),
+            required: t('message.required', { field: t('postal_code') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -145,7 +145,7 @@ export default function AddressForm({
           name="country"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('country') }),
+            required: t('message.required', { field: t('country') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">

@@ -41,7 +41,7 @@
   "branch_name": "Branch name",
   "edit_branch": "Edit branch",
   "add_branch": "Add branch",
-  "messages": {
+  "message": {
     "required": "{{field}} is required",
     "successfully_registered": "Successfully registered",
     "min_length": "{{field}} must be at least {{min_length}} characters long",
@@ -54,7 +54,11 @@
     "error_creating_user": "Error creating user",
     "user_updated_successfully": "User updated successfully",
     "branch_updated_successfully": "Branch updated successfully",
-    "error_updating_branch": "Error updating branch"
+    "error": "Error",
+    "error_updating_branch": "Error updating branch",
+    "branch_deleted_successfully": "Branch deleted successfully",
+    "delete_branch": "Delete branch",
+    "delete_branch_confirmation": "Are you sure you want to delete this branch?"
   },
   "button": {
     "submit": "Submit",

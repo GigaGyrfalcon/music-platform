@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { axiosPrivate } from '../../../api'
 import { Address } from '../../../domain/address'
 import { Branch, branchDefaultValues } from '../../../domain/branch'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 import AddressForm from '../../forms/AddressFrom/AddressFrom'
 import BranchForm from '../../forms/BranchFrom/BranchFrom'
 
@@ -39,13 +39,13 @@ function NewBranch() {
       if (response.status === 200) {
         toast.setToast(
           'success',
-          t('messages.success'),
-          t('messages.branch_created_successfully')
+          t('message.success'),
+          t('message.branch_created_successfully')
         )
         navigate('/branches', { replace: true })
       }
     } catch (error) {
-      toast.setToast('error', t('messages.error_creating_branch'), error)
+      toast.setToast('error', t('message.error_creating_branch'), error)
     }
   }
 

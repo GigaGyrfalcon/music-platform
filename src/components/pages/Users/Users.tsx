@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 
 import { axiosPrivate } from '../../../api'
 import { MerchantSchema } from '../../../domain/merchant'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 import { UsersTable } from '../../fragments'
 
 function Users() {

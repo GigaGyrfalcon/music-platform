@@ -15,8 +15,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import axios from '../../../api'
-import useAuth from '../../../hooks/useAuth'
-import useToast from '../../../hooks/useToast'
+import { useAuth, useToast } from '../../../hooks'
 
 type Inputs = {
   email: string
@@ -60,9 +59,9 @@ function Login() {
         rules={{
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: t('messages.invalid_email'),
+            message: t('message.invalid_email'),
           },
-          required: t('messages.required', { field: t('email') }),
+          required: t('message.required', { field: t('email') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -89,7 +88,7 @@ function Login() {
       <Controller
         name="password"
         control={control}
-        rules={{ required: t('messages.required', { field: t('password') }) }}
+        rules={{ required: t('message.required', { field: t('password') }) }}
         render={({ field, fieldState }) => (
           <>
             <span className="p-float-label mt-4">

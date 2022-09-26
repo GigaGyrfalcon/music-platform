@@ -31,7 +31,7 @@ function UserForm({
           name="first_name"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('first_name') }),
+            required: t('message.required', { field: t('first_name') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -70,7 +70,7 @@ function UserForm({
           name="last_name"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('last_name') }),
+            required: t('message.required', { field: t('last_name') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -95,7 +95,7 @@ function UserForm({
           name="position"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('position') }),
+            required: t('message.required', { field: t('position') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -122,9 +122,9 @@ function UserForm({
           rules={{
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: t('messages.invalid_email'),
+              message: t('message.invalid_email'),
             },
-            required: t('messages.required', { field: t('email') }),
+            required: t('message.required', { field: t('email') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
@@ -149,7 +149,7 @@ function UserForm({
           name="phone"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('phone') }),
+            required: t('message.required', { field: t('phone') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">

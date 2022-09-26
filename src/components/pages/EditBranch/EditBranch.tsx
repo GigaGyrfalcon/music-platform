@@ -13,7 +13,7 @@ import {
   branchDefaultValues,
   BranchSchema,
 } from '../../../domain/branch'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 import AddressForm from '../../forms/AddressFrom/AddressFrom'
 import BranchForm from '../../forms/BranchFrom/BranchFrom'
 
@@ -65,12 +65,12 @@ function EditBranch() {
         toast.setToast(
           'success',
           t('success'),
-          t('messages.branch_updated_successfully')
+          t('message.branch_updated_successfully')
         )
         navigate('/branches', { replace: true })
       }
     } catch (error) {
-      toast.setToast('error', t('messages.error_updating_branch'), error)
+      toast.setToast('error', t('message.error_updating_branch'), error)
     }
   }
 

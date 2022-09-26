@@ -2,21 +2,19 @@ import { Button } from 'primereact/button'
 import { Card } from 'primereact/card'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { Branch } from '../../../domain/branch'
 
-function Branches({ branches }: { branches: Branch[] }) {
+function Branches({
+  branches,
+  onDelete,
+}: {
+  branches: Branch[]
+  onDelete: (id: string) => void
+}) {
   const { t } = useTranslation()
-
-  const removeBranch = (data: Branch) => {
-    console.log('removeBranch', data)
-  }
-  const addBranch = () => {
-    console.log('addBranch')
-  }
 
   const actionBodyTemplate = (data: Branch) => {
     return (
@@ -26,7 +24,7 @@ function Branches({ branches }: { branches: Branch[] }) {
         </Link>
         <span
           className="px-1 cursor-pointer text-700 pi pi-trash"
-          onClick={() => removeBranch(data)}
+          onClick={() => onDelete(`${data.id}`)}
         ></span>
       </>
     )
@@ -56,7 +54,6 @@ function Branches({ branches }: { branches: Branch[] }) {
           <Button
             icon="pi pi-plus"
             className="p-button-info"
-            onClick={() => addBranch()}
             label="Add Branch"
           />
         </Link>

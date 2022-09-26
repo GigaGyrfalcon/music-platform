@@ -41,7 +41,7 @@
   "branch_name": "ფილიალის სახელი",
   "edit_branch": "რედაქტირება",
   "add_branch": "დამატება",
-  "messages": {
+  "message": {
     "required": "{{field}} სავალდებულოა",
     "successfully_registered": "თქვენ წარმატებით რეგისტრირდით",
     "min_length": "{{field}} ველი უნდა შეიცავდეს მინიმუმ {{min_length}} სიმბოლოს",
@@ -54,7 +54,11 @@
     "error_creating_user": "იუზერის შექმნისას შეცდომა",
     "user_updated_successfully": "იუზერი წარმატებით განახლდა",
     "branch_updated_successfully": "ფილიალი წარმატებით განახლდა",
-    "error_updating_branch": "ფილიალის განახლებისას შეცდომა"
+    "error": "შეცდომა",
+    "error_updating_branch": "ფილიალის განახლებისას შეცდომა",
+    "branch_deleted_successfully": "ფილიალი წარმატებით წაიშალა",
+    "delete_branch": "ფილიალის წაშლა",
+    "delete_branch_confirmation": "დარწმუნებული ხართ რომ გსურთ ფილიალის წაშლა?",
   },
   "button": {
     "submit": "გაგზავნა",

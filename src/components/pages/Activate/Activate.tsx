@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import axios from '../../../api'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 
 type Inputs = {
   password: string
@@ -70,10 +70,10 @@ function Activate() {
         name="password"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('password') }),
+          required: t('message.required', { field: t('password') }),
           minLength: {
             value: 8,
-            message: t('messages.min_length'),
+            message: t('message.min_length'),
           },
         }}
         render={({ field, fieldState }) => (
@@ -101,10 +101,10 @@ function Activate() {
         name="confirmPassword"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('confirm_password') }),
+          required: t('message.required', { field: t('confirm_password') }),
           minLength: {
             value: 8,
-            message: t('messages.min_length', {
+            message: t('message.min_length', {
               field: t('confirm_password'),
               min_length: 8,
             }),
@@ -112,7 +112,7 @@ function Activate() {
           validate: (value) => {
             return (
               value === getValues().password ||
-              t('messages.passwords_do_not_match')
+              t('message.passwords_do_not_match')
             )
           },
         }}

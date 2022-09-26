@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom'
 import axios from '../../../api'
 import { Address, addressDefaultValues } from '../../../domain/address'
 import { User, userDefaultValues, UserRoles } from '../../../domain/user'
-import useToast from '../../../hooks/useToast'
+import { useToast } from '../../../hooks'
 
 export type RegisterInputs = {
   legal_name: string
@@ -53,7 +53,7 @@ function Register() {
     try {
       const response = await axios.post(`/merchant`, values)
       if (response.status === 200) {
-        setSuccessMessage(t('messages.successfully_registered'))
+        setSuccessMessage(t('message.successfully_registered'))
       }
     } catch (error) {
       toast.setToast('error', 'Error', error.response.data.message)
@@ -72,7 +72,7 @@ function Register() {
         name="legal_name"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('legal_name') }),
+          required: t('message.required', { field: t('legal_name') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -119,7 +119,7 @@ function Register() {
         name="address.address_line_1"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('address_line_1') }),
+          required: t('message.required', { field: t('address_line_1') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -160,7 +160,7 @@ function Register() {
         name="address.city"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('city') }),
+          required: t('message.required', { field: t('city') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -186,7 +186,7 @@ function Register() {
         name="address.state"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('state') }),
+          required: t('message.required', { field: t('state') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -212,7 +212,7 @@ function Register() {
         name="address.postal_code"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('postal_code') }),
+          required: t('message.required', { field: t('postal_code') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -238,7 +238,7 @@ function Register() {
         name="address.country"
         control={control}
         rules={{
-          required: t('messages.required', { field: t('country') }),
+          required: t('message.required', { field: t('country') }),
         }}
         render={({ field, fieldState }) => (
           <>
@@ -269,7 +269,7 @@ function Register() {
             name={`users.${i}.first_name`}
             control={control}
             rules={{
-              required: t('messages.required', { field: t('first_name') }),
+              required: t('message.required', { field: t('first_name') }),
             }}
             render={({ field, fieldState }) => (
               <>
@@ -318,7 +318,7 @@ function Register() {
             name={`users.${i}.last_name`}
             control={control}
             rules={{
-              required: t('messages.required', { field: t('last_name') }),
+              required: t('message.required', { field: t('last_name') }),
             }}
             render={({ field, fieldState }) => (
               <>
@@ -348,7 +348,7 @@ function Register() {
             name={`users.${i}.position`}
             control={control}
             rules={{
-              required: t('messages.required', { field: t('position') }),
+              required: t('message.required', { field: t('position') }),
             }}
             render={({ field, fieldState }) => (
               <>
@@ -378,9 +378,9 @@ function Register() {
             rules={{
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: t('messages.invalid_email'),
+                message: t('message.invalid_email'),
               },
-              required: t('messages.required', { field: t('email') }),
+              required: t('message.required', { field: t('email') }),
             }}
             render={({ field, fieldState }) => (
               <>
@@ -408,7 +408,7 @@ function Register() {
             name={`users.${i}.phone`}
             control={control}
             rules={{
-              required: t('messages.required', { field: t('phone') }),
+              required: t('message.required', { field: t('phone') }),
             }}
             render={({ field, fieldState }) => (
               <>
@@ -489,7 +489,7 @@ function Register() {
               name={`users.${i}.address.address_line_1`}
               control={control}
               rules={{
-                required: t('messages.required', {
+                required: t('message.required', {
                   field: t('address_line_1'),
                 }),
               }}
@@ -534,7 +534,7 @@ function Register() {
               name={`users.${i}.address.city`}
               control={control}
               rules={{
-                required: t('messages.required', { field: t('city') }),
+                required: t('message.required', { field: t('city') }),
               }}
               render={({ field, fieldState }) => (
                 <>
@@ -562,7 +562,7 @@ function Register() {
               name={`users.${i}.address.state`}
               control={control}
               rules={{
-                required: t('messages.required', { field: t('state') }),
+                required: t('message.required', { field: t('state') }),
               }}
               render={({ field, fieldState }) => (
                 <>
@@ -590,7 +590,7 @@ function Register() {
               name={`users.${i}.address.postal_code`}
               control={control}
               rules={{
-                required: t('messages.required', {
+                required: t('message.required', {
                   field: t('postal_code'),
                 }),
               }}
@@ -620,7 +620,7 @@ function Register() {
               name={`users.${i}.address.country`}
               control={control}
               rules={{
-                required: t('messages.required', { field: t('country') }),
+                required: t('message.required', { field: t('country') }),
               }}
               render={({ field, fieldState }) => (
                 <>

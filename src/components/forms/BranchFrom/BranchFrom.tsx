@@ -29,7 +29,7 @@ function BranchForm({
           name="name"
           control={control}
           rules={{
-            required: t('messages.required', { field: t('branch_name') }),
+            required: t('message.required', { field: t('branch_name') }),
           }}
           render={({ field, fieldState }) => (
             <div className="wrap-field">
