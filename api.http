@@ -87,7 +87,8 @@ content-type: application/json
 DELETE http://127.0.0.1:8000/api/v1/branch/9 HTTP/1.1
 Authorization: Bearer e6283f01825bf7c09f050e9912898d7b
 
-post http://127.0.0.1:8000/api/v1/search_music http/1.1
+// Search music
+post http://127.0.0.1:8000/api/v1/search_music HTTP/1.1
 authorization: bearer e1463439b97decebab48d9d7287f2354
 content-type: application/json
 
@@ -95,4 +96,52 @@ content-type: application/json
   "query": "metallica die die die"
 }
 
+// Create playlist
+POST http://127.0.0.1:8000/api/v1/playlist HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
 
+{
+    "name": "Summer Playlist 1",
+    "branch_id": 1
+}
+
+// Update playlist
+PUT http://127.0.0.1:8000/api/v1/playlist HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
+{
+    "id": 8,
+    "name": "Tazooooo's Playlist",
+    "branch_id": 1
+}
+
+// Delete playlist
+DELETE http://127.0.0.1:8000/api/v1/playlist/8 HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
+
+// Add song to playlist
+POST http://127.0.0.1:8000/api/v1/playlist_member HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
+
+{
+    "playlist_id": 9,
+    "track_id": 599
+}
+
+// Get playlist members
+GET http://127.0.0.1:8000/api/v1/playlist/9 HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
+
+// Delete playlist member
+DELETE http://127.0.0.1:8000/api/v1/playlist_member/1 HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
+
+// Fetch all branches
+GET http://127.0.0.1:8000/api/v1/all_branches HTTP/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c
+content-type: application/json
