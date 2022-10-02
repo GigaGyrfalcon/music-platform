@@ -1,7 +1,7 @@
 import { Button } from 'primereact/button'
-import { Card } from 'primereact/card'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
+import { Panel } from 'primereact/panel'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -31,10 +31,7 @@ export function BranchesTable({
   }
 
   return (
-    <Card className="m-3">
-      <Link className="no-underline" to="/branches">
-        <h2 className="mt-0 text-700">{t('branches')}</h2>
-      </Link>
+    <Panel header={t('branches')} toggleable className="m-3">
       {branches && (
         <DataTable value={branches} responsiveLayout="scroll">
           <Column field="name" header="First Name"></Column>
@@ -58,6 +55,6 @@ export function BranchesTable({
           />
         </Link>
       </div>
-    </Card>
+    </Panel>
   )
 }

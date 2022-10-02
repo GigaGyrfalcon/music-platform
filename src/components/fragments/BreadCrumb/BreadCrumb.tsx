@@ -1,7 +1,6 @@
 import './breadcrumb.scss'
 
 import { BreadCrumb as PrimeBreadCrumb } from 'primereact/breadcrumb'
-import React from 'react'
 
 export function BreadCrumb() {
   const items = [

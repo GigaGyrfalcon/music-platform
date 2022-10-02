@@ -2,7 +2,7 @@ import './dashboard-header.scss'
 
 import { Button } from 'primereact/button'
 import { Menu } from 'primereact/menu'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { axiosPrivate } from '../../../api'

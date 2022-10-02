@@ -1,8 +1,7 @@
 import { Button } from 'primereact/button'
-import { Card } from 'primereact/card'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
-import React from 'react'
+import { Panel } from 'primereact/panel'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -32,10 +31,7 @@ export function UsersTable({
   }
 
   return (
-    <Card className="m-3">
-      <Link className="no-underline" to="/users">
-        <h2 className="mt-0 text-700">{t('users')}</h2>
-      </Link>
+    <Panel header={t('users')} toggleable className="m-3">
       {users && (
         <DataTable value={users} responsiveLayout="scroll">
           <Column field="first_name" header="First Name"></Column>
@@ -58,6 +54,6 @@ export function UsersTable({
           />
         </Link>
       </div>
-    </Card>
+    </Panel>
   )
 }

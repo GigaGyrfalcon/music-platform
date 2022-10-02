@@ -4,7 +4,6 @@ import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { SelectButton } from 'primereact/selectbutton'
 import { classNames } from 'primereact/utils'
-import React from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 

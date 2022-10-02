@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Card } from 'primereact/card'
+import { Panel } from 'primereact/panel'
 import { Steps } from 'primereact/steps'
 import { useEffect, useState } from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
@@ -71,9 +71,7 @@ function EditUser() {
   }
 
   return isSuccess ? (
-    <Card className="m-3">
-      <h2>{t('edit_user')}</h2>
-
+    <Panel header={t('edit_user')} className="m-3">
       <Steps className="mb-3" model={steps} activeIndex={activeIndex ?? 0} />
 
       {activeIndex === 0 && (
@@ -92,7 +90,7 @@ function EditUser() {
           cancelButtonFn={() => setActiveIndex(0)}
         />
       )}
-    </Card>
+    </Panel>
   ) : null
 }
 

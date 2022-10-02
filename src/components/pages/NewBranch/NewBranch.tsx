@@ -1,4 +1,4 @@
-import { Card } from 'primereact/card'
+import { Panel } from 'primereact/panel'
 import { Steps } from 'primereact/steps'
 import { useState } from 'react'
 import { SubmitHandler } from 'react-hook-form'
@@ -50,9 +50,7 @@ function NewBranch() {
   }
 
   return (
-    <Card className="m-3">
-      <h2>{t('add_branch')}</h2>
-
+    <Panel header={t('add_branch')} className="m-3">
       <Steps className="mb-3" model={steps} activeIndex={activeIndex} />
 
       {activeIndex === 0 && (
@@ -71,7 +69,7 @@ function NewBranch() {
           cancelButtonFn={() => setActiveIndex(0)}
         />
       )}
-    </Card>
+    </Panel>
   )
 }
 
