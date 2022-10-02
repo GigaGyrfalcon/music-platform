@@ -27,11 +27,9 @@ function EditBranch() {
 
   const steps = [{ label: t('general_info') }, { label: t('address') }]
 
-  const getBranch = async () => {
-    return await axiosPrivate(`${localStorage.getItem('token')}`).get(
-      `/branch/${id}`
-    )
-  }
+  const getBranch = async () =>
+    await axiosPrivate(`${localStorage.getItem('token')}`).get(`/branch/${id}`)
+
   const { data, isSuccess, remove } = useQuery(['branch', id], getBranch)
 
   useEffect(() => {

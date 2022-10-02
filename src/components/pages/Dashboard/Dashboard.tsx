@@ -7,18 +7,15 @@ import { useTranslation } from 'react-i18next'
 import { axiosPrivate } from '../../../api'
 import { MerchantSchema } from '../../../domain/merchant'
 import { useConfirmDialog, useToast } from '../../../hooks'
-import { BranchesTable, UsersTable } from '../../fragments'
+import { BranchesTable, PlaylistsTable, UsersTable } from '../../fragments'
 
 function Dashboard() {
   const toast = useToast()
   const confirm = useConfirmDialog()
   const { t } = useTranslation()
 
-  const getMerchant = async () => {
-    return await axiosPrivate(`${localStorage.getItem('token')}`).get(
-      '/merchant'
-    )
-  }
+  const getMerchant = async () =>
+    await axiosPrivate(`${localStorage.getItem('token')}`).get('/merchant')
 
   const { data, isSuccess, refetch } = useQuery(['merchant'], getMerchant)
 
@@ -81,6 +78,7 @@ function Dashboard() {
 
   return isSuccess ? (
     <div className="dashboard">
+      <PlaylistsTable playlists={data.data.playlists} onDelete={onUserDelete} />
       <UsersTable users={data.data.users} onDelete={onUserDelete} />
       <BranchesTable branches={data.data.branches} onDelete={onBranchDelete} />
     </div>

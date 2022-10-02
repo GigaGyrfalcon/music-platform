@@ -12,11 +12,8 @@ function Branch() {
   const confirm = useConfirmDialog()
   const { t } = useTranslation()
 
-  const getMerchant = async () => {
-    return await axiosPrivate(`${localStorage.getItem('token')}`).get(
-      '/merchant'
-    )
-  }
+  const getMerchant = async () =>
+    await axiosPrivate(`${localStorage.getItem('token')}`).get('/merchant')
 
   const { data, isSuccess, refetch } = useQuery(['merchant'], getMerchant)
 

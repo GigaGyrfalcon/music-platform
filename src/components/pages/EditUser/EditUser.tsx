@@ -23,11 +23,9 @@ function EditUser() {
 
   const steps = [{ label: t('user_details') }, { label: t('address') }]
 
-  const getUser = async () => {
-    return await axiosPrivate(`${localStorage.getItem('token')}`).get(
-      `/user/${id}`
-    )
-  }
+  const getUser = async () =>
+    await axiosPrivate(`${localStorage.getItem('token')}`).get(`/user/${id}`)
+
   const { data, isSuccess, remove } = useQuery(['user', id], getUser)
 
   useEffect(() => {

@@ -63,8 +63,8 @@ Authorization: Bearer
 
 
 // Authorize merchant
-GET http://127.0.0.1:8000/api/v1/merchant HTTP/1.1
-Authorization: Bearer e6283f01825bf7c09f050e9912898d7b 
+get http://127.0.0.1:8000/api/v1/merchant http/1.1
+authorization: bearer 6e8708aa29fa1748734cd94720fb807c 
 
 // Create branch
 POST http://127.0.0.1:8000/api/v1/branch HTTP/1.1
