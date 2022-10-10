@@ -83,6 +83,10 @@ content-type: application/json
 	}
 }
 
+// Fetch branch
+GET http://127.0.0.1:8000/api/v1/branch/9 HTTP/1.1
+Authorization: Bearer 22fdbb33e0dc51f1bf7af4620016a753
+
 // Delete branch
 DELETE http://127.0.0.1:8000/api/v1/branch/9 HTTP/1.1
 Authorization: Bearer e6283f01825bf7c09f050e9912898d7b

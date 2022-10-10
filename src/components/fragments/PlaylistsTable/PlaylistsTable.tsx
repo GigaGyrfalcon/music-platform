@@ -35,6 +35,7 @@ export function PlaylistsTable({
       {playlists && (
         <DataTable value={playlists} responsiveLayout="scroll">
           <Column field="name" header="Playlist name"></Column>
+          <Column field="branch.name" header="Branch name"></Column>
           <Column
             body={actionBodyTemplate}
             exportable={false}

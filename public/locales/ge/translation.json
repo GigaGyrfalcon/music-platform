@@ -41,6 +41,7 @@
   "branch_name": "ფილიალის სახელი",
   "edit_branch": "რედაქტირება",
   "add_branch": "დამატება",
+  "playlists": "პლეილისტები",
   "message": {
     "required": "{{field}} სავალდებულოა",
     "successfully_registered": "თქვენ წარმატებით რეგისტრირდით",

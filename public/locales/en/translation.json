@@ -41,6 +41,7 @@
   "branch_name": "Branch name",
   "edit_branch": "Edit branch",
   "add_branch": "Add branch",
+  "playlists": "Playlists",
   "message": {
     "required": "{{field}} is required",
     "successfully_registered": "Successfully registered",
