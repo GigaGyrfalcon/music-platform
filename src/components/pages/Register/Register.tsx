@@ -6,7 +6,7 @@ import { InputText } from 'primereact/inputtext'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { SelectButton } from 'primereact/selectbutton'
 import { classNames } from 'primereact/utils'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   Controller,
   FieldValues,

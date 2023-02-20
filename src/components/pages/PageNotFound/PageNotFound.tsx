@@ -1,5 +1,3 @@
-import React from 'react'
-
 function PageNotFound() {
   return (
     <main className="text-right">

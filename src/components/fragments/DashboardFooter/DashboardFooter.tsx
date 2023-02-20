@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function DashboardFooter() {
   return (
     <footer className="surface-border border-2">

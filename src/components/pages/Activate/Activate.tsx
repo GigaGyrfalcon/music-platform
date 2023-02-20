@@ -3,7 +3,7 @@ import './activate.scss'
 import { Button } from 'primereact/button'
 import { Password } from 'primereact/password'
 import { classNames } from 'primereact/utils'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   Controller,
   FieldValues,
